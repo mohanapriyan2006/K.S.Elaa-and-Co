@@ -1,0 +1,35 @@
+import { motion } from 'framer-motion'
+import { hoverLift } from '../utils/animations'
+
+const Motion = motion
+
+function ServiceCard({ item }) {
+  return (
+    <Motion.article
+      variants={hoverLift}
+      initial="rest"
+      whileHover="hover"
+      className="group relative overflow-hidden rounded-2xl border border-border/80 bg-white shadow-soft"
+    >
+      <div className="mx-3 mt-3 overflow-hidden rounded-t-[999px]">
+        <img
+          src={item.image}
+          alt={item.title}
+          loading="lazy"
+          className="h-72 w-full object-cover transition duration-500 group-hover:scale-110"
+        />
+      </div>
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brown/70 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
+      <div className="absolute bottom-4 left-4 right-4">
+        <p className="translate-y-5 rounded-xl bg-white/90 px-4 py-3 text-sm font-semibold text-brown opacity-0 backdrop-blur-sm transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+          {item.title}
+        </p>
+      </div>
+      <div className="px-5 pb-5 pt-4">
+        <h3 className="font-heading text-xl text-brown">{item.title}</h3>
+      </div>
+    </Motion.article>
+  )
+}
+
+export default ServiceCard
