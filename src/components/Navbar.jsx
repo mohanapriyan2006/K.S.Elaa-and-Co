@@ -21,6 +21,8 @@ function Navbar() {
           <img
             src="/K-S-Elaa&co-logo.png"
             alt="K.S. ELAA & CO logo"
+            width="40"
+            height="40"
             className="h-10 w-10 rounded-full border border-primary/30 object-cover"
             loading="eager"
           />

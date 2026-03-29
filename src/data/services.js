@@ -1,47 +1,47 @@
-// Local image mapping for all 24 gallery images
-const images = import.meta.glob('../assets/gallery/*.{png,jpg,jpeg,PNG,JPG,JPEG}', { eager: true });
-export const galleryImages = Object.values(images).map(img => img.default);
+// Local image mapping for all gallery images
+const images = import.meta.glob('../assets/gallery/*.{png,jpg,jpeg,PNG,JPG,JPEG}', { eager: true })
+export const galleryImages = Object.values(images).map((img) => img.default)
 
 export const serviceItems = [
   {
-    id: 'haldi-decoration',
-    title: 'Haldi Decoration',
-    slug: 'haldi',
-    group: 'Wedding',
-    image: galleryImages[0] || 'https://images.unsplash.com/photo-1519225421980-715cb0215aed',
-  },
-  {
-    id: 'engagement',
-    title: 'Engagement',
-    slug: 'engagement',
-    group: 'Wedding',
-    image: galleryImages[1] || 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622',
-  },
-  {
-    id: 'reception',
-    title: 'Reception',
-    slug: 'reception',
-    group: 'Wedding',
-    image: galleryImages[20] || 'https://images.unsplash.com/photo-1469334031218-e382a71b716b',
-  },
-  {
-    id: 'marriage',
-    title: 'Marriage',
-    slug: 'marriage',
+    id: 'wedding-decoration',
+    title: 'Wedding Decoration',
+    slug: 'wedding-decoration',
     group: 'Wedding',
     image: galleryImages[9] || 'https://images.unsplash.com/photo-1519741497674-611481863552',
   },
   {
+    id: 'haldi-decoration',
+    title: 'Haldi Decoration',
+    slug: 'haldi-decoration',
+    group: 'Wedding',
+    image: galleryImages[0] || 'https://images.unsplash.com/photo-1519225421980-715cb0215aed',
+  },
+  {
+    id: 'engagement-decoration',
+    title: 'Engagement Decoration',
+    slug: 'engagement-decoration',
+    group: 'Wedding',
+    image: galleryImages[1] || 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622',
+  },
+  {
+    id: 'reception-setup',
+    title: 'Reception Setup',
+    slug: 'reception-setup',
+    group: 'Wedding',
+    image: galleryImages[20] || 'https://images.unsplash.com/photo-1469334031218-e382a71b716b',
+  },
+  {
     id: 'baby-shower',
-    title: 'Baby Shower',
-    slug: 'baby-shower',
+    title: 'Baby Shower Decoration',
+    slug: 'baby-shower-decoration',
     group: 'Celebrations',
     image: galleryImages[13] || 'https://images.unsplash.com/photo-1519225421980-715cb0215aed',
   },
   {
-    id: 'birthday',
-    title: 'Birthday',
-    slug: 'birthday',
+    id: 'birthday-decoration',
+    title: 'Birthday Decoration',
+    slug: 'birthday-decoration',
     group: 'Celebrations',
     image: galleryImages[12] || 'https://images.unsplash.com/photo-1530103862676-fa8c91bbe17d',
   },
@@ -53,30 +53,23 @@ export const serviceItems = [
     image: galleryImages[17] || 'https://images.unsplash.com/photo-1519225421980-715cb0215aed',
   },
   {
-    id: 'party-decoration',
-    title: 'Party Decoration',
-    slug: 'party-decoration',
-    group: 'Celebrations',
-    image: galleryImages[15] || 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3',
-  },
-  {
     id: 'panthal-setup',
     title: 'Panthal Setup',
-    slug: 'panthal',
+    slug: 'panthal-setup',
     group: 'Panthal & Stage',
     image: galleryImages[16] || 'https://images.unsplash.com/photo-1519225421980-715cb0215aed',
   },
   {
-    id: 'sports-stage-setup',
-    title: 'Sports Stage Setup',
-    slug: 'sports-stage',
+    id: 'kabbadi-stage-setup',
+    title: 'Kabbadi Stage Setup',
+    slug: 'kabbadi-stage-setup',
     group: 'Panthal & Stage',
     image: galleryImages[18] || 'https://images.unsplash.com/photo-1519225421980-715cb0215aed',
   },
   {
-    id: 'corporate-events',
-    title: 'Corporate Events',
-    slug: 'corporate-events',
+    id: 'corporate-event-decoration',
+    title: 'Corporate Event Decoration',
+    slug: 'corporate-event-decoration',
     group: 'Corporate',
     image: galleryImages[19] || 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678',
   },

@@ -13,6 +13,13 @@ export const content = {
     footer: {
       tagline: 'நிகழ்ச்சி திட்டமிடல் | அலங்காரம் | பந்தல்',
       crafted: 'தமிழ்நாடு முழுவதும் அழகான கொண்டாட்டங்களுக்கு உருவாக்கப்பட்டது.',
+      serviceAreaText: 'தஞ்சாவூர், திருச்சி மற்றும் அருகிலுள்ள தமிழ்நாடு பகுதிகளில் சேவை.',
+      hoursText: 'திங்கள்-ஞாயிறு: காலை 8:00 - இரவு 9:00',
+      quickLinks: {
+        wedding: 'திருமண அலங்காரம்',
+        haldi: 'ஹல்தி அலங்காரம்',
+        panthal: 'பந்தல் அமைப்பு',
+      },
     },
     floating: {
       instagram: 'இன்ஸ்டாகிராம்',
@@ -24,6 +31,27 @@ export const content = {
       title: 'சேவைகள் மற்றும் அலங்காரக் காட்சிகள்',
       subtitle:
         'திருமணம், விழாக்கள், பந்தல் அலங்காரம், மேடை வடிவமைப்பு மற்றும் நிறுவன நிகழ்வுகளுக்கான கைவினை அமைப்புகளை பாருங்கள்.',
+      seoIntro:
+        'திருமண அலங்காரம், ஹல்தி அலங்காரம், அல்லது தமிழ்நாட்டில் பந்தல் அமைப்பு தேடுகிறீர்களா? தஞ்சாவூர் மற்றும் திருச்சிக்கான எங்கள் நகர-மைய சேவைகளை பாருங்கள்.',
+      faqTitle: 'அடிக்கடி கேட்கப்படும் கேள்விகள்',
+      faqs: [
+        {
+          q: 'தஞ்சாவூர் மற்றும் திருச்சி இரண்டிலும் சேவை கிடைக்குமா?',
+          a: 'ஆம். திருமணம், ஹல்தி, வரவேற்பு, பந்தல், பிறந்தநாள் மற்றும் நிறுவன நிகழ்ச்சிகளுக்கான அலங்கார சேவைகள் இரு நகரங்களிலும் கிடைக்கும்.',
+        },
+        {
+          q: 'சிறிய நிகழ்ச்சிக்கு மலிவான பேக்கேஜ்கள் உள்ளதா?',
+          a: 'ஆம். நிகழ்வு வகை, விருந்தினர் எண்ணிக்கை, இடம் போன்றவற்றின் அடிப்படையில் பட்ஜெட் மற்றும் பிரீமியம் திட்டங்கள் உள்ளன.',
+        },
+        {
+          q: 'எவ்வளவு முன்பாக பதிவு செய்ய வேண்டும்?',
+          a: 'திருமண சீசன் மற்றும் விழாக்காலங்களில் முன்பதிவு செய்வது சிறந்தது. இதனால் உங்கள் தேதியை உறுதியாகப் பெறலாம்.',
+        },
+      ],
+      helperTitle: 'சரியான அலங்கார பேக்கேஜை தேர்வு செய்ய உதவி வேண்டுமா?',
+      helperLead: 'விவரமான திட்டங்கள் மற்றும் விலை வழிகாட்டுதலுக்கு எங்கள்',
+      helperLinkConnector: 'அல்லது',
+      helperTail: 'பக்கங்களை பாருங்கள்.',
       tabs: {
         all: 'அனைத்தும்',
         wedding: 'திருமணம்',
@@ -41,6 +69,12 @@ export const content = {
       quickSupportText:
         'பேக்கேஜ்கள் மற்றும் கிடைப்புத் தகவல்களுக்கு எங்கள் குழுவுடன் நேரடியாக வாட்ஸ்அப்பில் பேசுங்கள்.',
       whatsappCta: 'வாட்ஸ்அப்பில் பேசுங்கள்',
+      localInfoTitle: 'உள்ளூர் சேவை தகவல்',
+      businessNameLabel: 'நிறுவன பெயர்',
+      serviceAreaLabel: 'சேவை பகுதி',
+      phoneLabel: 'தொலைபேசி',
+      hoursLabel: 'பணிநேரம்',
+      hoursValue: 'திங்கள்-ஞாயிறு காலை 8:00 - இரவு 9:00',
     },
     contactForm: {
       name: 'பெயர்',
@@ -101,6 +135,29 @@ export const content = {
         'உங்கள் கொண்டாட்டத்தை மறக்க முடியாத அனுபவமாக மாற்றலாம். இன்று எங்களை தொடர்பு கொள்ளுங்கள்.',
       ctaPrimary: 'தொடங்குங்கள்',
       ctaSecondary: 'அனைத்து சேவைகளையும் பாருங்கள்',
+      localSeoTitle: 'தஞ்சாவூர் மற்றும் திருச்சியில் நிகழ்ச்சி அலங்கார சேவைகள்',
+      localSeoParagraph1:
+        'K.S. ELAA & CO திருமண அலங்காரம், ஹல்தி அலங்காரம், நிச்சயதார்த்த அலங்காரம், வரவேற்பு மேடை அமைப்பு, சீமந்தம், பிறந்தநாள், மண்ணாடு பந்தல், பந்தல் அமைப்பு, கபடி மேடை அமைப்பு மற்றும் நிறுவன நிகழ்ச்சி அலங்கார சேவைகளை தஞ்சாவூர் மற்றும் திருச்சியில் வழங்குகிறது.',
+      localSeoParagraph2Start: 'பாரம்பரிய நிகழ்ச்சிகளுக்கு எங்கள்',
+      localSeoParagraph2Middle: 'மற்றும்',
+      localSeoParagraph2Middle2: 'சேவைகளை பாருங்கள். திருமணத்துக்கு முன் நிகழ்ச்சிகளுக்கு',
+      localSeoParagraph2Middle3: 'மற்றும்',
+      localSeoParagraph2End: 'பக்கங்களை பார்க்கலாம்.',
+      faqTitle: 'அடிக்கடி கேட்கப்படும் கேள்விகள்',
+      faqs: [
+        {
+          q: 'தஞ்சாவூர் மற்றும் திருச்சியில் திருமண அலங்கார சேவை கிடைக்குமா?',
+          a: 'ஆம். K.S. ELAA & CO தஞ்சாவூர், திருச்சி மற்றும் அருகிலுள்ள பகுதிகளில் திருமண அலங்கார சேவைகள் வழங்குகிறது.',
+        },
+        {
+          q: 'ஹல்தி மற்றும் வரவேற்பு அலங்காரத்தை ஒரே பேக்கேஜாக பதிவு செய்ய முடியுமா?',
+          a: 'ஆம். உங்கள் தேதி மற்றும் பட்ஜெட்டுக்கு ஏற்ப இணைந்த பேக்கேஜ்களை வழங்குகிறோம்.',
+        },
+        {
+          q: 'பாரம்பரிய நிகழ்ச்சிகளுக்கான பந்தல் அமைப்பு செய்கிறீர்களா?',
+          a: 'ஆம். மண்ணாடு பந்தல் மற்றும் பந்தல் அமைப்பு சேவைகள் பாரம்பரிய வடிவமைப்புடன் கிடைக்கும்.',
+        },
+      ],
       whyCards: [
         {
           title: 'பிரீமியம் வடிவமைப்பு',
@@ -209,6 +266,13 @@ export const content = {
     footer: {
       tagline: 'Event Planning | Decoration | Panthal',
       crafted: 'Designed for elegant celebrations across Tamil Nadu.',
+      serviceAreaText: 'Event decorators serving Thanjavur, Trichy, and nearby Tamil Nadu locations.',
+      hoursText: 'Mon-Sun: 8:00 AM - 9:00 PM',
+      quickLinks: {
+        wedding: 'Wedding Decoration',
+        haldi: 'Haldi Decoration',
+        panthal: 'Panthal Setup',
+      },
     },
     floating: {
       instagram: 'Instagram',
@@ -220,6 +284,27 @@ export const content = {
       title: 'Services & Decor Gallery',
       subtitle:
         'Explore hand-crafted setups across weddings, celebrations, panthal work, stage designs, and corporate experiences.',
+      seoIntro:
+        'Looking for wedding decorators near me, haldi decoration services, or panthal setup in Tamil Nadu? Explore our city-focused services for Thanjavur and Trichy.',
+      faqTitle: 'Frequently Asked Questions',
+      faqs: [
+        {
+          q: 'Do you offer event decoration services in both Thanjavur and Trichy?',
+          a: 'Yes. We provide wedding, haldi, reception, panthal, birthday, and corporate event decoration in both cities and nearby locations.',
+        },
+        {
+          q: 'Can I get affordable decoration packages for small functions?',
+          a: 'Yes. We offer budget-friendly and premium packages based on your event type, guest count, and venue requirements.',
+        },
+        {
+          q: 'How early should I book event decoration services?',
+          a: 'We recommend booking early, especially for wedding and festive seasons, to secure your preferred date and design style.',
+        },
+      ],
+      helperTitle: 'Need Help Choosing the Right Decor Package?',
+      helperLead: 'Check our',
+      helperLinkConnector: 'or',
+      helperTail: 'service pages for detailed planning options and pricing guidance.',
       tabs: {
         all: 'All',
         wedding: 'Wedding',
@@ -237,6 +322,12 @@ export const content = {
       quickSupportText:
         'Chat with our team directly on WhatsApp for package details and availability.',
       whatsappCta: 'WhatsApp Us',
+      localInfoTitle: 'Local Service Information',
+      businessNameLabel: 'Business Name',
+      serviceAreaLabel: 'Service Area',
+      phoneLabel: 'Phone',
+      hoursLabel: 'Working Hours',
+      hoursValue: 'Mon-Sun 8:00 AM - 9:00 PM',
     },
     contactForm: {
       name: 'Name',
@@ -297,6 +388,32 @@ export const content = {
         'Let\'s transform your celebration into an unforgettable experience. Connect with us today to discuss your event vision.',
       ctaPrimary: 'Get Started',
       ctaSecondary: 'Explore All Services',
+      localSeoTitle: 'Event Decorators in Thanjavur and Trichy',
+      localSeoParagraph1:
+        'K.S. ELAA & CO provides wedding decoration, haldi decoration, engagement decoration, reception setup, baby shower decoration, birthday decoration, mannadu panthal, panthal setup, kabbadi stage setup, and corporate event decoration services across Thanjavur and Trichy.',
+      localSeoParagraph2Start: 'Planning a traditional ceremony? Explore our',
+      localSeoParagraph2Middle: 'and',
+      localSeoParagraph2Middle2: 'services. Looking for pre-wedding functions? Check our',
+      localSeoParagraph2Middle3: 'and',
+      localSeoParagraph2End: 'pages.',
+      faqTitle: 'Frequently Asked Questions',
+      faqs: [
+        {
+          name: 'faq1',
+          q: 'Do you provide wedding decorators near me in Thanjavur and Trichy?',
+          a: 'Yes. K.S. ELAA & CO provides wedding decoration services across Thanjavur, Trichy, and nearby areas in Tamil Nadu.',
+        },
+        {
+          name: 'faq2',
+          q: 'Can I book haldi and reception decoration as a combined package?',
+          a: 'Yes. We provide customized event packages that combine haldi, engagement, wedding, and reception decoration based on your timeline and budget.',
+        },
+        {
+          name: 'faq3',
+          q: 'Do you offer panthal setup for traditional functions?',
+          a: 'Yes. We provide mannadu panthal and panthal setup services with traditional styling and practical layout planning.',
+        },
+      ],
       whyCards: [
         {
           title: 'Premium Design',

@@ -12,6 +12,12 @@ function Hero() {
   const { language } = useLanguage()
   const t = content[language] ?? content.ta
   const homeContent = t?.home ?? content.en.home
+  const heroAltText =
+    language === 'ta'
+      ? 'K.S. ELAA & CO வழங்கும் தஞ்சாவூர் மற்றும் திருச்சியில் திருமண அலங்கார அமைப்பு'
+      : 'Wedding decoration setup in Thanjavur and Trichy by K.S. ELAA & CO'
+  const premiumLabel = language === 'ta' ? 'பிரீமியம்' : 'Premium'
+  const premiumSubLabel = language === 'ta' ? 'நிகழ்ச்சி வடிவமைப்பு' : 'Event Design'
   const heroImage =
     galleryImages[24] ||
     'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80'
@@ -108,7 +114,9 @@ function Hero() {
             <div className="relative overflow-hidden rounded-[2rem] bg-gray-100">
               <img
                 src={heroImage}
-                alt="Indian wedding stage decoration with elegant floral arrangements"
+                alt={heroAltText}
+                width="1280"
+                height="896"
                 className="h-80 w-full object-cover sm:h-[28rem]"
                 loading="eager"
               />
@@ -122,8 +130,8 @@ function Hero() {
             transition={{ duration: 3, repeat: Infinity }}
             className="absolute -bottom-4 -right-4 rounded-xl border-2 border-white bg-gradient-to-br from-primary to-primaryHover px-4 py-3 shadow-xl"
           >
-            <p className="text-xs font-bold uppercase text-white tracking-widest">Premium</p>
-            <p className="text-xs text-white/90">Event Design</p>
+            <p className="text-xs font-bold uppercase text-white tracking-widest">{premiumLabel}</p>
+            <p className="text-xs text-white/90">{premiumSubLabel}</p>
           </Motion.div>
         </Motion.div>
       </div>

@@ -4,11 +4,13 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import { Camera, Globe2, MessageCircle, PhoneCall } from 'lucide-react'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
+import SeoManager from './components/SeoManager'
 import { companySocial, phoneNumber, whatsappNumber } from './data/services'
 import Contact from './pages/Contact'
 import Home from './pages/Home'
 import Services from './pages/Services'
 import About from './pages/About'
+import ServiceLanding from './pages/ServiceLanding'
 import { pageTransition } from './utils/animations'
 import { useLanguage } from './context/useLanguage'
 import { content } from './i18n/content'
@@ -100,6 +102,18 @@ function FloatingContactActions() {
 
 function AnimatedRoutes() {
   const location = useLocation()
+  const serviceRoutes = [
+    '/wedding-decoration',
+    '/haldi-decoration',
+    '/engagement-decoration',
+    '/reception-setup',
+    '/baby-shower-decoration',
+    '/birthday-decoration',
+    '/mannadu-panthal',
+    '/panthal-setup',
+    '/kabbadi-stage-setup',
+    '/corporate-event-decoration',
+  ]
 
   return (
     <AnimatePresence mode="wait">
@@ -136,6 +150,17 @@ function AnimatedRoutes() {
             </Motion.div>
           }
         />
+        {serviceRoutes.map((path) => (
+          <Route
+            key={path}
+            path={path}
+            element={
+              <Motion.div {...pageTransition}>
+                <ServiceLanding />
+              </Motion.div>
+            }
+          />
+        ))}
       </Routes>
     </AnimatePresence>
   )
@@ -144,6 +169,7 @@ function AnimatedRoutes() {
 function App() {
   return (
     <div className="min-h-screen bg-background font-body text-textPrimary">
+      <SeoManager />
       <ScrollToTop />
       <Navbar />
       <FloatingLanguageToggle />

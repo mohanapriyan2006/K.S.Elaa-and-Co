@@ -23,6 +23,34 @@ function Home() {
   const localizedTestimonials =
     homeContent?.testimonials?.length ? homeContent.testimonials : testimonials
   const safeTestimonialIndex = activeTestimonial % localizedTestimonials.length
+  const homeFaqs = homeContent?.faqs?.length ? homeContent.faqs : content.en.home.faqs
+  const linkLabels =
+    language === 'ta'
+      ? {
+          panthal: 'பந்தல் அமைப்பு',
+          mannadu: 'மண்ணாடு பந்தல்',
+          haldi: 'ஹல்தி அலங்காரம்',
+          engagement: 'நிச்சயதார்த்த அலங்காரம்',
+        }
+      : {
+          panthal: 'Panthal Setup',
+          mannadu: 'Mannadu Panthal',
+          haldi: 'Haldi Decoration',
+          engagement: 'Engagement Decoration',
+        }
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: homeFaqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  }
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -34,6 +62,8 @@ function Home() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
       <Hero />
 
       <CategoryGrid
@@ -42,6 +72,28 @@ function Home() {
         subtitle={homeContent.categoriesSubtitle}
         badgeLabel={homeContent.categoriesBadge}
       />
+
+      <section className="py-8 sm:py-10">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <article className="rounded-2xl border border-border bg-white p-6 shadow-soft sm:p-8">
+            <h2 className="font-heading text-3xl text-brown">{homeContent.localSeoTitle}</h2>
+            <p className="mt-4 leading-relaxed text-textSecondary">
+              {homeContent.localSeoParagraph1}
+            </p>
+            <p className="mt-3 leading-relaxed text-textSecondary">
+              {homeContent.localSeoParagraph2Start}{' '}
+              <Link to="/panthal-setup" className="font-semibold text-brown underline">{linkLabels.panthal}</Link>
+              {' '}{homeContent.localSeoParagraph2Middle}{' '}
+              <Link to="/mannadu-panthal" className="font-semibold text-brown underline">{linkLabels.mannadu}</Link>
+              {' '}{homeContent.localSeoParagraph2Middle2}{' '}
+              <Link to="/haldi-decoration" className="font-semibold text-brown underline">{linkLabels.haldi}</Link>
+              {' '}{homeContent.localSeoParagraph2Middle3}{' '}
+              <Link to="/engagement-decoration" className="font-semibold text-brown underline">{linkLabels.engagement}</Link>
+              {' '}{homeContent.localSeoParagraph2End}
+            </p>
+          </article>
+        </div>
+      </section>
 
       {/* Why Choose Us Section - Enhanced */}
       <section className="bg-gradient-to-br from-white/50 via-yellowSoft/10 to-primary/5 py-8 sm:py-12 lg:py-16">
@@ -147,6 +199,22 @@ function Home() {
       {/* Gallery Section */}
       <section className="bg-white/30 py-12 sm:py-16 lg:py-20">
         <Gallery items={galleryPreview} title={homeContent.galleryTitle} buttonLabel={homeContent.galleryButton} />
+      </section>
+
+      <section className="py-10 sm:py-14">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-2xl border border-border bg-white p-6 shadow-soft sm:p-8">
+            <h2 className="font-heading text-3xl text-brown">{homeContent.faqTitle}</h2>
+            <div className="mt-6 space-y-4">
+              {homeFaqs.map((faq) => (
+                <article key={faq.q} className="rounded-xl border border-border/70 bg-background p-4">
+                  <h3 className="font-semibold text-brown">{faq.q}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-textSecondary">{faq.a}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* CTA Section - Enhanced */}
