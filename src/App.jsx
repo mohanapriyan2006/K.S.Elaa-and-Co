@@ -7,6 +7,7 @@ import { whatsappNumber } from './data/services'
 import Contact from './pages/Contact'
 import Home from './pages/Home'
 import Services from './pages/Services'
+import About from './pages/About'
 import { pageTransition } from './utils/animations'
 
 const Motion = motion
@@ -56,6 +57,14 @@ function AnimatedRoutes() {
           element={
             <Motion.div {...pageTransition}>
               <Services />
+            </Motion.div>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <Motion.div {...pageTransition}>
+              <About />
             </Motion.div>
           }
         />
