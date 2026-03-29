@@ -14,7 +14,7 @@ import {
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { fadeInUp, staggerContainer } from '../utils/animations'
-import { developer, companySocial, serviceItems } from '../data/services'
+import { developer, companySocial, serviceItems, galleryImages } from '../data/services'
 import { useLanguage } from '../context/useLanguage'
 import { content } from '../i18n/content'
 
@@ -24,9 +24,14 @@ const valueIcons = [BadgeCheck, Layers, ShieldCheck, Rocket, BriefcaseBusiness, 
 
 function About() {
   const { language } = useLanguage()
-  const t = content[language]
+  const t = content[language] ?? content.ta
+  const aboutContent = t?.about ?? content.en.about
+  const aboutTags = aboutContent?.tags ?? []
+  const aboutParagraphs = aboutContent?.paragraphs ?? []
+  const aboutStats = aboutContent?.stats ?? []
+  const aboutValues = aboutContent?.values ?? []
   const aboutHeroImage =
-    serviceItems[3]?.image ||
+    galleryImages[7] ||
     'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1400&q=80'
 
   return (
@@ -49,16 +54,16 @@ function About() {
                 variants={fadeInUp}
                 className="font-heading text-4xl leading-tight text-brown sm:text-6xl lg:text-7xl"
               >
-                {t.about.title}
+                {aboutContent.title}
               </Motion.h1>
               <Motion.p
                 variants={fadeInUp}
                 className="mt-6 max-w-2xl text-lg text-textSecondary sm:text-xl"
               >
-                {t.about.subtitle}
+                {aboutContent.subtitle}
               </Motion.p>
               <Motion.div variants={fadeInUp} className="mt-8 flex flex-wrap items-center gap-3 text-xs font-semibold text-brown/80">
-                {t.about.tags.map((tag) => (
+                {aboutTags.map((tag) => (
                   <span key={tag} className="rounded-full border border-primary/40 bg-white/70 px-3 py-1">{tag}</span>
                 ))}
               </Motion.div>
@@ -92,10 +97,10 @@ function About() {
             {/* Left Column */}
             <Motion.div variants={fadeInUp} className="space-y-6">
               <h2 className="font-heading text-3xl text-brown sm:text-4xl">
-                {t.about.crafted}
+                {aboutContent.crafted}
               </h2>
               <div className="space-y-4 text-textSecondary leading-relaxed">
-                {t.about.paragraphs.map((paragraph) => (
+                {aboutParagraphs.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
@@ -106,7 +111,7 @@ function About() {
               variants={staggerContainer}
               className="grid gap-6 sm:grid-cols-2"
             >
-              {t.about.stats.map((stat) => (
+              {aboutStats.map((stat) => (
                 <Motion.div
                   key={stat.label}
                   variants={fadeInUp}
@@ -131,8 +136,8 @@ function About() {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h2 className="font-heading text-3xl text-brown sm:text-4xl">{t.about.valuesTitle}</h2>
-            <p className="mt-4 text-textSecondary">{t.about.valuesSubtitle}</p>
+            <h2 className="font-heading text-3xl text-brown sm:text-4xl">{aboutContent.valuesTitle}</h2>
+            <p className="mt-4 text-textSecondary">{aboutContent.valuesSubtitle}</p>
           </Motion.div>
 
           <Motion.div
@@ -142,7 +147,7 @@ function About() {
             viewport={{ once: true, amount: 0.2 }}
             className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
           >
-            {t.about.values.map((value, index) => {
+            {aboutValues.map((value, index) => {
               const Icon = valueIcons[index % valueIcons.length]
               return (
                 <Motion.article
@@ -172,9 +177,9 @@ function About() {
             transition={{ duration: 0.6 }}
             className="rounded-2xl border border-primary/30 bg-gradient-to-br from-pink-50/50 to-primary/5 p-8 text-center md:p-12"
           >
-            <h2 className="font-heading text-3xl text-brown sm:text-4xl">{t.about.followUs}</h2>
+            <h2 className="font-heading text-3xl text-brown sm:text-4xl">{aboutContent.followUs}</h2>
             <p className="mt-3 text-textSecondary">
-              {t.about.instaText}
+              {aboutContent.instaText}
             </p>
             <a
               href={companySocial.instagram}
@@ -183,7 +188,7 @@ function About() {
               className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-3 font-semibold text-white shadow-lg transition hover:shadow-xl hover:scale-105"
             >
               <Camera size={18} />
-              {t.about.instaButton}
+              {aboutContent.instaButton}
             </a>
           </Motion.div>
         </div>
@@ -200,9 +205,9 @@ function About() {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h2 className="font-heading text-3xl text-brown sm:text-4xl">{t.about.craftedBy}</h2>
+            <h2 className="font-heading text-3xl text-brown sm:text-4xl">{aboutContent.craftedBy}</h2>
             <p className="mt-2 text-textSecondary">
-              {t.about.designedBy}
+              {aboutContent.designedBy}
             </p>
           </Motion.div>
 
@@ -222,7 +227,7 @@ function About() {
 
               <div className="mt-6 flex flex-wrap justify-center gap-4">
                 {[
-                  { label: t.about.portfolio, url: developer.portfolio, icon: Globe },
+                  { label: aboutContent.portfolio, url: developer.portfolio, icon: Globe },
                   { label: 'GitHub', url: developer.github, icon: GitBranch },
                   { label: 'LinkedIn', url: developer.linkedin, icon: Building2 },
                 ].map((link) => (
@@ -242,7 +247,7 @@ function About() {
 
               <p className="mt-4 inline-flex items-center gap-1 text-xs text-textSecondary">
                 <Mail size={14} />
-                {t.about.email}:
+                {aboutContent.email}:
                 <a href={`mailto:${developer.email}`} className="font-medium text-primary hover:text-primaryHover">
                   {developer.email}
                 </a>
@@ -264,24 +269,24 @@ function About() {
             className="space-y-6"
           >
             <h2 className="font-heading text-3xl text-brown sm:text-4xl">
-              {t.about.ctaTitle}
+              {aboutContent.ctaTitle}
             </h2>
             <p className="text-lg text-textSecondary">
-              {t.about.ctaText}
+              {aboutContent.ctaText}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 to="/contact"
                 className="group inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 font-semibold text-brown shadow-soft transition hover:bg-primaryHover"
               >
-                {t.about.ctaPrimary}
+                {aboutContent.ctaPrimary}
                 <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/services"
                 className="group inline-flex items-center gap-2 rounded-xl border border-border bg-white px-6 py-3 font-semibold text-brown transition hover:border-primary/60"
               >
-                {t.about.ctaSecondary}
+                {aboutContent.ctaSecondary}
                 <Camera size={18} className="transition-transform group-hover:translate-x-1" />
               </Link>
             </div>

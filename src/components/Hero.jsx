@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { fadeInUp, staggerContainer } from '../utils/animations'
-import { serviceItems } from '../data/services'
+import { galleryImages, serviceItems } from '../data/services'
 import { useLanguage } from '../context/useLanguage'
 import { content } from '../i18n/content'
 
@@ -12,7 +12,7 @@ function Hero() {
   const { language } = useLanguage()
   const t = content[language]
   const heroImage =
-    serviceItems[3]?.image ||
+    galleryImages[24] ||
     'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80'
 
   return (

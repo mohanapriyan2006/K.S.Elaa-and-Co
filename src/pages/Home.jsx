@@ -17,10 +17,11 @@ const whyUsIcons = [Sparkles, Palette, CircleDollarSign, Zap]
 function Home() {
   const [activeTestimonial, setActiveTestimonial] = useState(0)
   const { language } = useLanguage()
-  const t = content[language]
-  const whyCards = t?.home?.whyCards?.length ? t.home.whyCards : content.en.home.whyCards
+  const t = content[language] ?? content.ta
+  const homeContent = t?.home ?? content.en.home
+  const whyCards = homeContent?.whyCards?.length ? homeContent.whyCards : content.en.home.whyCards
   const localizedTestimonials =
-    t?.home?.testimonials?.length ? t.home.testimonials : testimonials
+    homeContent?.testimonials?.length ? homeContent.testimonials : testimonials
   const safeTestimonialIndex = activeTestimonial % localizedTestimonials.length
 
   useEffect(() => {
@@ -37,9 +38,9 @@ function Home() {
 
       <CategoryGrid
         items={serviceItems}
-        title={t.home.categoriesTitle}
-        subtitle={t.home.categoriesSubtitle}
-        badgeLabel={t.home.categoriesBadge}
+        title={homeContent.categoriesTitle}
+        subtitle={homeContent.categoriesSubtitle}
+        badgeLabel={homeContent.categoriesBadge}
       />
 
       {/* Why Choose Us Section - Enhanced */}
@@ -52,8 +53,8 @@ function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="font-heading text-3xl sm:text-4xl text-brown">{t.home.whyTitle}</h2>
-            <p className="mt-3 text-textSecondary">{t.home.whySubtitle}</p>
+            <h2 className="font-heading text-3xl sm:text-4xl text-brown">{homeContent.whyTitle}</h2>
+            <p className="mt-3 text-textSecondary">{homeContent.whySubtitle}</p>
           </Motion.div>
 
           <Motion.div
@@ -94,8 +95,8 @@ function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="font-heading text-3xl sm:text-4xl text-brown">{t.home.testimonialTitle}</h2>
-            <p className="mt-3 text-textSecondary">{t.home.testimonialSubtitle}</p>
+            <h2 className="font-heading text-3xl sm:text-4xl text-brown">{homeContent.testimonialTitle}</h2>
+            <p className="mt-3 text-textSecondary">{homeContent.testimonialSubtitle}</p>
           </Motion.div>
 
           <div className="mx-auto max-w-3xl">
@@ -145,7 +146,7 @@ function Home() {
 
       {/* Gallery Section */}
       <section className="bg-white/30 py-12 sm:py-16 lg:py-20">
-        <Gallery items={galleryPreview} title={t.home.galleryTitle} buttonLabel={t.home.galleryButton} />
+        <Gallery items={galleryPreview} title={homeContent.galleryTitle} buttonLabel={homeContent.galleryButton} />
       </section>
 
       {/* CTA Section - Enhanced */}
@@ -162,24 +163,24 @@ function Home() {
             className="space-y-8"
           >
             <h2 className="font-heading text-4xl sm:text-5xl text-brown">
-              {t.home.ctaTitle}
+              {homeContent.ctaTitle}
             </h2>
             <p className="text-lg text-textSecondary max-w-2xl mx-auto">
-              {t.home.ctaSubtitle}
+              {homeContent.ctaSubtitle}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 to="/contact"
                 className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-primaryHover px-6 py-3 text-sm font-semibold text-brown shadow-lg transition hover:shadow-xl hover:scale-105 sm:px-8 sm:py-4 sm:text-base"
               >
-                {t.home.ctaPrimary}
+                {homeContent.ctaPrimary}
                 <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/services"
                 className="rounded-xl border-2 border-primary/40 bg-white px-6 py-3 text-sm font-semibold text-brown transition hover:border-primary hover:bg-yellowSoft/30 sm:px-8 sm:py-4 sm:text-base"
               >
-                {t.home.ctaSecondary}
+                {homeContent.ctaSecondary}
               </Link>
             </div>
           </Motion.div>

@@ -1,6 +1,6 @@
 // Local image mapping for all 24 gallery images
 const images = import.meta.glob('../assets/gallery/*.{png,jpg,jpeg,PNG,JPG,JPEG}', { eager: true });
-const galleryImages = Object.values(images).map(img => img.default);
+export const galleryImages = Object.values(images).map(img => img.default);
 
 export const serviceItems = [
   {
@@ -29,7 +29,7 @@ export const serviceItems = [
     title: 'Marriage',
     slug: 'marriage',
     group: 'Wedding',
-    image: galleryImages[24] || 'https://images.unsplash.com/photo-1519741497674-611481863552',
+    image: galleryImages[9] || 'https://images.unsplash.com/photo-1519741497674-611481863552',
   },
   {
     id: 'baby-shower',
