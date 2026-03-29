@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { act, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { Camera, Globe2, MessageCircle, PhoneCall } from 'lucide-react'
@@ -58,7 +58,7 @@ function FloatingContactActions() {
       id: 'instagram',
       href: companySocial.instagram,
       label: t.floating.instagram,
-      icon: Camera,
+      icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1280px-Instagram_logo_2022.svg.png",
       className: 'bg-gradient-to-r from-pink-500 to-rose-500 text-white',
       external: true,
     },
@@ -82,7 +82,12 @@ function FloatingContactActions() {
   return (
     <div className="fixed bottom-4 right-3 z-50 flex flex-col gap-3 sm:bottom-5 sm:right-5">
       {actions.map((action) => {
-        const Icon = action.icon
+        var Icon;
+        if(action.id === 'instagram') {
+          Icon = action.icon ? () => <img src={action.icon} alt={action.label} className="h-4 w-4" /> : Camera;
+        } else {
+          Icon = action.icon;
+        }
         return (
           <a
             key={action.id}

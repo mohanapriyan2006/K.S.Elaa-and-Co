@@ -48,7 +48,8 @@ function Contact() {
             </p>
             <p className="text-sm text-textSecondary">
               {t.contactPage.phoneLabel}:{' '}
-              <a className="font-semibold text-brown underline" href={`tel:+${phoneNumber}`}>+91 94898 42773</a>
+              <a className="font-semibold text-brown underline" href={`tel:+${phoneNumber}`}>+91 94430 75773</a>
+              ,<a className="font-semibold text-brown underline" href={`tel:+${whatsappNumber}`}>+91 93447 68115</a>
             </p>
             <p className="text-sm text-textSecondary">{t.contactPage.hoursLabel}: {t.contactPage.hoursValue}</p>
           </article>
