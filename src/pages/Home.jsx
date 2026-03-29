@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom'
 import Hero from '../components/Hero'
 import CategoryGrid from '../components/CategoryGrid'
 import Gallery from '../components/Gallery'
-import { galleryPreview, serviceItems, testimonials, whyChooseUs } from '../data/services'
+import { galleryPreview, serviceItems, testimonials } from '../data/services'
 import { fadeInUp, staggerContainer } from '../utils/animations'
+import { useLanguage } from '../context/useLanguage'
+import { content } from '../i18n/content'
 
 const Motion = motion
 
@@ -14,14 +16,20 @@ const whyUsIcons = [Sparkles, Palette, CircleDollarSign, Zap]
 
 function Home() {
   const [activeTestimonial, setActiveTestimonial] = useState(0)
+  const { language } = useLanguage()
+  const t = content[language]
+  const whyCards = t?.home?.whyCards?.length ? t.home.whyCards : content.en.home.whyCards
+  const localizedTestimonials =
+    t?.home?.testimonials?.length ? t.home.testimonials : testimonials
+  const safeTestimonialIndex = activeTestimonial % localizedTestimonials.length
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveTestimonial((prev) => (prev + 1) % testimonials.length)
+      setActiveTestimonial((prev) => (prev + 1) % localizedTestimonials.length)
     }, 5000)
 
     return () => clearInterval(timer)
-  }, [])
+  }, [localizedTestimonials.length])
 
   return (
     <>
@@ -29,8 +37,9 @@ function Home() {
 
       <CategoryGrid
         items={serviceItems}
-        title="Our Decoration Services"
-        subtitle="From intimate family ceremonies to grand celebrations, every setup is designed with balance, warmth, and detail."
+        title={t.home.categoriesTitle}
+        subtitle={t.home.categoriesSubtitle}
+        badgeLabel={t.home.categoriesBadge}
       />
 
       {/* Why Choose Us Section - Enhanced */}
@@ -43,8 +52,8 @@ function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="font-heading text-3xl sm:text-4xl text-brown">Why Choose K.S. ELAA & CO</h2>
-            <p className="mt-3 text-textSecondary">Excellence in every detail, tradition in every moment</p>
+            <h2 className="font-heading text-3xl sm:text-4xl text-brown">{t.home.whyTitle}</h2>
+            <p className="mt-3 text-textSecondary">{t.home.whySubtitle}</p>
           </Motion.div>
 
           <Motion.div
@@ -54,7 +63,7 @@ function Home() {
             viewport={{ once: true, amount: 0.2 }}
             className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
           >
-            {whyChooseUs.map((point, index) => (
+            {whyCards.map((point, index) => (
               <Motion.article
                 key={point.title}
                 variants={fadeInUp}
@@ -85,15 +94,15 @@ function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="font-heading text-3xl sm:text-4xl text-brown">What Our Clients Say</h2>
-            <p className="mt-3 text-textSecondary">Real stories from happy celebrations</p>
+            <h2 className="font-heading text-3xl sm:text-4xl text-brown">{t.home.testimonialTitle}</h2>
+            <p className="mt-3 text-textSecondary">{t.home.testimonialSubtitle}</p>
           </Motion.div>
 
           <div className="mx-auto max-w-3xl">
             <div className="relative min-h-[280px] rounded-3xl border-2 border-primary/30 bg-gradient-to-br from-yellowSoft/30 to-primary/10 p-8 sm:p-12 shadow-lg">
               <AnimatePresence mode="wait">
                 <Motion.div
-                  key={activeTestimonial}
+                  key={`${language}-${safeTestimonialIndex}`}
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -15 }}
@@ -105,23 +114,23 @@ function Home() {
                       <Star key={i} size={18} fill="currentColor" strokeWidth={1.5} />
                     ))}
                   </div>
-                  <blockquote className="text-xl leading-relaxed text-textSecondary italic italic">
-                    "{testimonials[activeTestimonial].quote}"
+                  <blockquote className="text-lg leading-relaxed text-textSecondary italic sm:text-xl">
+                    "{localizedTestimonials[safeTestimonialIndex].quote}"
                   </blockquote>
                   <footer className="font-heading text-2xl text-brown">
-                    — {testimonials[activeTestimonial].name}
+                    — {localizedTestimonials[safeTestimonialIndex].name}
                   </footer>
                 </Motion.div>
               </AnimatePresence>
 
               {/* Testimonial Indicators */}
               <div className="mt-8 flex justify-center gap-3">
-                {testimonials.map((_, index) => (
+                {localizedTestimonials.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setActiveTestimonial(index)}
                     className={`h-2 rounded-full transition-all ${
-                      index === activeTestimonial
+                      index === safeTestimonialIndex
                         ? 'w-8 bg-primary'
                         : 'w-2 bg-border hover:bg-primary/50'
                     }`}
@@ -136,7 +145,7 @@ function Home() {
 
       {/* Gallery Section */}
       <section className="bg-white/30 py-12 sm:py-16 lg:py-20">
-        <Gallery items={galleryPreview} />
+        <Gallery items={galleryPreview} title={t.home.galleryTitle} buttonLabel={t.home.galleryButton} />
       </section>
 
       {/* CTA Section - Enhanced */}
@@ -153,25 +162,24 @@ function Home() {
             className="space-y-8"
           >
             <h2 className="font-heading text-4xl sm:text-5xl text-brown">
-              Ready to Create Magic?
+              {t.home.ctaTitle}
             </h2>
             <p className="text-lg text-textSecondary max-w-2xl mx-auto">
-              Let's transform your celebration into an unforgettable experience. Connect with us today 
-              to discuss your event vision.
+              {t.home.ctaSubtitle}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-primaryHover px-8 py-4 font-semibold text-brown shadow-lg transition hover:shadow-xl hover:scale-105"
+                className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-primaryHover px-6 py-3 text-sm font-semibold text-brown shadow-lg transition hover:shadow-xl hover:scale-105 sm:px-8 sm:py-4 sm:text-base"
               >
-                Get Started
+                {t.home.ctaPrimary}
                 <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/services"
-                className="rounded-xl border-2 border-primary/40 bg-white px-8 py-4 font-semibold text-brown transition hover:border-primary hover:bg-yellowSoft/30"
+                className="rounded-xl border-2 border-primary/40 bg-white px-6 py-3 text-sm font-semibold text-brown transition hover:border-primary hover:bg-yellowSoft/30 sm:px-8 sm:py-4 sm:text-base"
               >
-                Explore All Services
+                {t.home.ctaSecondary}
               </Link>
             </div>
           </Motion.div>

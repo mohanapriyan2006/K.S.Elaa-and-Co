@@ -4,20 +4,20 @@ import { fadeInUp, staggerContainer } from '../utils/animations'
 
 const Motion = motion
 
-function Gallery({ items, title = 'Gallery Preview' }) {
+function Gallery({ items, title = 'Gallery Preview', badgeLabel = 'Showcase', buttonLabel = 'View Full Gallery' }) {
   return (
     <section className="py-16 sm:py-20">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div className="space-y-3">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-mediumBrown">Showcase</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-mediumBrown">{badgeLabel}</p>
             <h2 className="font-heading text-3xl text-brown sm:text-4xl">{title}</h2>
           </div>
           <Link
             to="/services"
             className="inline-flex w-fit rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-brown shadow-soft transition hover:bg-primaryHover"
           >
-            View Full Gallery
+            {buttonLabel}
           </Link>
         </div>
 

@@ -1,0 +1,394 @@
+export const content = {
+  ta: {
+    langLabel: 'தமிழ்',
+    switchLanguage: 'English',
+    nav: {
+      home: 'முகப்பு',
+      services: 'சேவைகள்',
+      about: 'எங்களை பற்றி',
+      contact: 'தொடர்பு',
+      bookNow: 'இப்போது பதிவு செய்யவும்',
+      menu: 'மெனு',
+    },
+    footer: {
+      tagline: 'நிகழ்ச்சி திட்டமிடல் | அலங்காரம் | பந்தல்',
+      crafted: 'தமிழ்நாடு முழுவதும் அழகான கொண்டாட்டங்களுக்கு உருவாக்கப்பட்டது.',
+    },
+    floating: {
+      instagram: 'இன்ஸ்டாகிராம்',
+      call: 'அழைக்கவும்',
+      whatsapp: 'வாட்ஸ்அப்',
+    },
+    servicesPage: {
+      badge: 'போர்ட்ஃபோலியோ',
+      title: 'சேவைகள் மற்றும் அலங்காரக் காட்சிகள்',
+      subtitle:
+        'திருமணம், விழாக்கள், பந்தல் அலங்காரம், மேடை வடிவமைப்பு மற்றும் நிறுவன நிகழ்வுகளுக்கான கைவினை அமைப்புகளை பாருங்கள்.',
+      tabs: {
+        all: 'அனைத்தும்',
+        wedding: 'திருமணம்',
+        celebrations: 'விழாக்கள்',
+        panthal: 'பந்தல் & மேடை',
+        corporate: 'நிறுவன',
+      },
+    },
+    contactPage: {
+      badge: 'தொடர்பு',
+      title: 'உங்கள் கொண்டாட்டத்தை எங்களுடன் திட்டமிடுங்கள்',
+      subtitle:
+        'நிகழ்வு தேதி மற்றும் உங்கள் அலங்கார விருப்பத்தை பகிருங்கள். உங்கள் இடம், பட்ஜெட் மற்றும் நிகழ்ச்சிக்கேற்ற தனிப்பயன் வடிவமைப்பை நாங்கள் உருவாக்குகிறோம்.',
+      quickSupportTitle: 'உடனடி உதவி வேண்டுமா?',
+      quickSupportText:
+        'பேக்கேஜ்கள் மற்றும் கிடைப்புத் தகவல்களுக்கு எங்கள் குழுவுடன் நேரடியாக வாட்ஸ்அப்பில் பேசுங்கள்.',
+      whatsappCta: 'வாட்ஸ்அப்பில் பேசுங்கள்',
+    },
+    contactForm: {
+      name: 'பெயர்',
+      phone: 'தொலைபேசி',
+      eventType: 'நிகழ்வு வகை',
+      eventDate: 'நிகழ்வு தேதி',
+      message: 'செய்தி',
+      yourName: 'உங்கள் முழுப் பெயர்',
+      digitsHint: '10-15 இலக்கங்கள்',
+      selectEventType: 'நிகழ்வு வகையை தேர்ந்தெடுக்கவும்',
+      messagePlaceholder: 'உங்கள் பாணி, இடம் மற்றும் எதிர்பார்ப்புகளை சொல்லுங்கள்',
+      send: 'விசாரணையை அனுப்பவும்',
+      success: 'நன்றி. உங்கள் விசாரணை பதிவு செய்யப்பட்டது. விரைவில் தொடர்பு கொள்கிறோம்.',
+      errors: {
+        name: 'பெயர் அவசியம்.',
+        phone: 'சரியான தொலைபேசி எண்ணை உள்ளிடவும்.',
+        eventType: 'நிகழ்வு வகையை தேர்ந்தெடுக்கவும்.',
+        eventDate: 'நிகழ்வு தேதியை தேர்ந்தெடுக்கவும்.',
+        message: 'உங்கள் நிகழ்வைப் பற்றி எழுதுங்கள்.',
+      },
+      eventOptions: {
+        marriage: 'திருமணம்',
+        reception: 'வரவேற்பு',
+        engagement: 'நிச்சயதார்த்தம்',
+        haldiDecoration: 'ஹல்தி அலங்காரம்',
+        babyShower: 'சீமந்தம்',
+        birthday: 'பிறந்தநாள்',
+        mannaduPanthal: 'மண்ணாடு பந்தல்',
+        partyDecoration: 'விருந்து அலங்காரம்',
+        panthalSetup: 'பந்தல் அமைப்பு',
+        kabbadiStageSetup: 'கபடி மேடை அமைப்பு',
+        corporateEvents: 'நிறுவன நிகழ்வுகள்',
+      },
+    },
+    home: {
+      heroBadge: 'அழகிய நிகழ்ச்சி வடிவமைப்பு',
+      heroTitleLine1: 'அழகான',
+      heroTitleLine2: 'கொண்டாட்டங்களை உருவாக்குகிறோம்',
+      heroText:
+        'சிறிய குடும்ப விழாக்களிலிருந்து பெரிய நிகழ்வுகள் வரை, பாரம்பரியமும் நவீன காட்சியுமாக உங்கள் கனவுகளை நாங்கள் நனவாக்குகிறோம்.',
+      heroPrimary: 'உங்கள் நிகழ்வை பதிவு செய்யவும்',
+      heroSecondary: 'சேவைகளை காண்க',
+      trustEvents: 'நிகழ்வுகள்',
+      trustClients: 'மகிழ்ச்சியான வாடிக்கையாளர்கள்',
+      trustYears: 'ஆண்டுகள்',
+      categoriesBadge: 'வகைகள்',
+      categoriesTitle: 'எங்கள் அலங்கார சேவைகள்',
+      categoriesSubtitle:
+        'குடும்ப நிகழ்வுகளிலிருந்து பிரம்மாண்ட கொண்டாட்டங்கள் வரை ஒவ்வொரு அமைப்பும் சமநிலை, வெப்பம் மற்றும் நுணுக்கத்துடன் வடிவமைக்கப்படுகிறது.',
+      whyTitle: 'ஏன் K.S. ELAA & CO?',
+      whySubtitle: 'ஒவ்வொரு விவரத்திலும் சிறப்பு, ஒவ்வொரு தருணத்திலும் பாரம்பரியம்',
+      testimonialTitle: 'எங்கள் வாடிக்கையாளர்கள் சொல்வது',
+      testimonialSubtitle: 'மகிழ்ச்சியான கொண்டாட்டங்களின் உண்மை கதைகள்',
+      galleryTitle: 'காட்சிப்படங்கள்',
+      galleryButton: 'முழு காட்சியகத்தை பார்க்க',
+      ctaTitle: 'மந்திரத்தை உருவாக்க தயாரா?',
+      ctaSubtitle:
+        'உங்கள் கொண்டாட்டத்தை மறக்க முடியாத அனுபவமாக மாற்றலாம். இன்று எங்களை தொடர்பு கொள்ளுங்கள்.',
+      ctaPrimary: 'தொடங்குங்கள்',
+      ctaSecondary: 'அனைத்து சேவைகளையும் பாருங்கள்',
+      whyCards: [
+        {
+          title: 'பிரீமியம் வடிவமைப்பு',
+          description: 'ஒவ்வொரு கொண்டாட்டத்தையும் உயர்த்த சுத்தமான மற்றும் நவீன அலங்கார அமைப்புகள்.',
+        },
+        {
+          title: 'தனிப்பயன் தீம்கள்',
+          description: 'உங்கள் கதை, இடம் மற்றும் சடங்குகளுக்கேற்ப ஒவ்வொரு அமைப்பும் வடிவமைக்கப்படுகிறது.',
+        },
+        {
+          title: 'செலவுச்செலுத்தக்க விலை',
+          description: 'உயர் தரத்துடன் உங்கள் பட்ஜெட்டுக்கு ஏற்ற பல்வேறு பேக்கேஜ்கள்.',
+        },
+        {
+          title: 'விரைவு அமைப்பு',
+          description: 'மனஅழுத்தமற்ற நிகழ்ச்சி நாளுக்கான திட்டமிட்ட மற்றும் நேர்த்தியான செயலாக்கம்.',
+        },
+      ],
+      testimonials: [
+        {
+          name: 'ப்ரியா & அர்ஜுன்',
+          quote:
+            'எங்கள் திருமண மண்டபத்தை அவர்கள் மெருகான, மனதில் நிற்கும் அழகான இடமாக மாற்றினர். ஒவ்வொரு விவரமும் மிகச் சிறப்பாக இருந்தது.',
+        },
+        {
+          name: 'நிவேதா S.',
+          quote:
+            'சீமந்தம் முதல் மேடை விளக்குகள் வரை அனைத்தும் அழகாகவும் நேர்த்தியாகவும் செய்தார்கள். மிகுந்த திருப்தி.',
+        },
+        {
+          name: 'RK இன்டஸ்ட்ரீஸ்',
+          quote:
+            'எங்கள் நிறுவன நிகழ்ச்சிக்கான மேடை மற்றும் பிராண்டிங் அலங்காரம் மிகவும் தொழில்முறையாகவும் தரமாகவும் அமைந்தது.',
+        },
+      ],
+    },
+    about: {
+      title: 'எங்கள் கதை',
+      subtitle:
+        'K.S. ELAA & CO உங்கள் சிறப்பு தருணங்களை அழகான நினைவுகளாக மாற்றுகிறது. பாரம்பரிய மெருகையும் நவீன காட்சியையும் இணைத்து நிகழ்ச்சி அலங்காரங்களை உருவாக்குகிறோம்.',
+      tags: ['திருமண அலங்காரம்', 'மேடை வடிவமைப்பு', 'நிறுவன நிகழ்வுகள்'],
+      crafted: 'அர்ப்பணிப்புடன் வடிவமைப்பு',
+      paragraphs: [
+        'தொடக்கம் முதல் இன்று வரை, கொண்டாட்டங்களை கலைநயமிக்க அமைப்புகளாக மாற்றுவது எங்கள் நோக்கம்.',
+        'இந்திய பாரம்பரியத்தின் ஆழத்தையும் நவீன சுவையையும் இணைத்து ஒவ்வொரு நிகழ்வையும் தனித்துவமாக உருவாக்குகிறோம்.',
+        'சிறிய குடும்ப விழாவாக இருந்தாலும் பெரிய கொண்டாட்டமாக இருந்தாலும், உங்கள் கனவுக்கு ஏற்ப சிறப்பாக செயல்படுகிறோம்.',
+      ],
+      stats: [
+        { number: '500+', label: 'அலங்கரிக்கப்பட்ட நிகழ்வுகள்' },
+        { number: '98%', label: 'வாடிக்கையாளர் திருப்தி' },
+        { number: '10+', label: 'அனுபவ ஆண்டுகள்' },
+        { number: '24/7', label: 'எப்போதும் ஆதரவு' },
+      ],
+      valuesTitle: 'எங்கள் மதிப்புகள்',
+      valuesSubtitle: 'எங்களை இயக்கும் சிறந்த கொள்கைகள்',
+      values: [
+        {
+          title: 'தரம் முதன்மை',
+          description: 'ஒவ்வொரு விவரமும் மிகுந்த கவனத்துடன் மற்றும் தரமான பொருட்களுடன் செயல்படுத்தப்படுகிறது.',
+        },
+        {
+          title: 'அசல் தன்மை',
+          description: 'பாரம்பரியத்தை காக்கும் போது நவீன வடிவமைப்பை இணைக்கிறோம்.',
+        },
+        {
+          title: 'வாடிக்கையாளர் மையம்',
+          description: 'உங்கள் கனவு, பட்ஜெட், காலக்கெடு ஆகியவற்றை மையமாக வைத்து செயல்படுகிறோம்.',
+        },
+        {
+          title: 'புதுமை',
+          description: 'புதிய யோசனைகள் மற்றும் நவீன தொழில்நுட்பத்துடன் வேலை செய்கிறோம்.',
+        },
+        {
+          title: 'நம்பகத்தன்மை',
+          description: 'ஒழுக்கமான திட்டமிடல் மற்றும் நேர்த்தியான செயலாக்கம் எங்கள் பலம்.',
+        },
+        {
+          title: 'மலிவான தேர்வு',
+          description: 'உயர் தர அலங்காரம் - கட்டுப்பட்ட செலவில் பல்வேறு தேர்வுகள்.',
+        },
+      ],
+      followUs: 'எங்களை பின்தொடருங்கள்',
+      instaText: 'எங்கள் சமீபத்திய அலங்காரங்கள் மற்றும் பின்னணி காட்சிகளை இன்ஸ்டாகிராமில் பாருங்கள்',
+      instaButton: 'இன்ஸ்டாகிராமை பார்வையிடவும்',
+      craftedBy: 'உருவாக்கியது',
+      designedBy: 'அன்புடன் வடிவமைத்து உருவாக்கியவர்',
+      portfolio: 'போர்ட்ஃபோலியோ',
+      email: 'மின்னஞ்சல்',
+      ctaTitle: 'உங்கள் நிகழ்ச்சியை திட்டமிட தயாரா?',
+      ctaText: 'அழகான நினைவுகளை ஒன்றாக உருவாக்கலாம். இன்று எங்களை தொடர்பு கொள்ளுங்கள்.',
+      ctaPrimary: 'இப்போது பதிவு செய்யவும்',
+      ctaSecondary: 'சேவைகளை பார்க்க',
+    },
+  },
+  en: {
+    langLabel: 'English',
+    switchLanguage: 'தமிழ்',
+    nav: {
+      home: 'Home',
+      services: 'Services',
+      about: 'About',
+      contact: 'Contact',
+      bookNow: 'Book Now',
+      menu: 'Menu',
+    },
+    footer: {
+      tagline: 'Event Planning | Decoration | Panthal',
+      crafted: 'Designed for elegant celebrations across Tamil Nadu.',
+    },
+    floating: {
+      instagram: 'Instagram',
+      call: 'Call Now',
+      whatsapp: 'WhatsApp',
+    },
+    servicesPage: {
+      badge: 'Portfolio',
+      title: 'Services & Decor Gallery',
+      subtitle:
+        'Explore hand-crafted setups across weddings, celebrations, panthal work, stage designs, and corporate experiences.',
+      tabs: {
+        all: 'All',
+        wedding: 'Wedding',
+        celebrations: 'Celebrations',
+        panthal: 'Panthal & Stage',
+        corporate: 'Corporate',
+      },
+    },
+    contactPage: {
+      badge: 'Contact',
+      title: 'Plan Your Celebration With Us',
+      subtitle:
+        'Share your event date and styling vision. We will build a custom decoration concept for your venue, budget, and occasion.',
+      quickSupportTitle: 'Need quick support?',
+      quickSupportText:
+        'Chat with our team directly on WhatsApp for package details and availability.',
+      whatsappCta: 'WhatsApp Us',
+    },
+    contactForm: {
+      name: 'Name',
+      phone: 'Phone',
+      eventType: 'Event Type',
+      eventDate: 'Event Date',
+      message: 'Message',
+      yourName: 'Your full name',
+      digitsHint: '10-15 digits',
+      selectEventType: 'Select event type',
+      messagePlaceholder: 'Tell us your style, venue, and event expectations',
+      send: 'Send Inquiry',
+      success: 'Thanks. Your event inquiry has been captured. We will contact you shortly.',
+      errors: {
+        name: 'Name is required.',
+        phone: 'Enter a valid phone number.',
+        eventType: 'Please select event type.',
+        eventDate: 'Please choose event date.',
+        message: 'Please tell us about your event.',
+      },
+      eventOptions: {
+        marriage: 'Marriage',
+        reception: 'Reception',
+        engagement: 'Engagement',
+        haldiDecoration: 'Haldi Decoration',
+        babyShower: 'Baby Shower',
+        birthday: 'Birthday',
+        mannaduPanthal: 'Mannadu Panthal',
+        partyDecoration: 'Party Decoration',
+        panthalSetup: 'Panthal Setup',
+        kabbadiStageSetup: 'Kabbadi Stage Setup',
+        corporateEvents: 'Corporate Events',
+      },
+    },
+    home: {
+      heroBadge: 'Elegant Event Design',
+      heroTitleLine1: 'Crafting Beautiful',
+      heroTitleLine2: 'Celebrations',
+      heroText:
+        'From intimate weddings to grand events, we design elegant spaces filled with refined details, warm traditions, and modern luxury. Let us transform your vision into an unforgettable experience.',
+      heroPrimary: 'Book Your Event',
+      heroSecondary: 'Explore Services',
+      trustEvents: 'Events',
+      trustClients: 'Happy Clients',
+      trustYears: 'Years',
+      categoriesBadge: 'Categories',
+      categoriesTitle: 'Our Decoration Services',
+      categoriesSubtitle:
+        'From intimate family ceremonies to grand celebrations, every setup is designed with balance, warmth, and detail.',
+      whyTitle: 'Why Choose K.S. ELAA & CO',
+      whySubtitle: 'Excellence in every detail, tradition in every moment',
+      testimonialTitle: 'What Our Clients Say',
+      testimonialSubtitle: 'Real stories from happy celebrations',
+      galleryTitle: 'Gallery Preview',
+      galleryButton: 'View Full Gallery',
+      ctaTitle: 'Ready to Create Magic?',
+      ctaSubtitle:
+        'Let\'s transform your celebration into an unforgettable experience. Connect with us today to discuss your event vision.',
+      ctaPrimary: 'Get Started',
+      ctaSecondary: 'Explore All Services',
+      whyCards: [
+        {
+          title: 'Premium Design',
+          description: 'Clean, elegant decoration layouts built to elevate every celebration.',
+        },
+        {
+          title: 'Custom Themes',
+          description: 'Every setup is styled to match your story, venue, and event rituals.',
+        },
+        {
+          title: 'Affordable Pricing',
+          description: 'Flexible packages that keep quality high while respecting your budget.',
+        },
+        {
+          title: 'Quick Setup',
+          description: 'Disciplined planning and on-time execution for stress-free event days.',
+        },
+      ],
+      testimonials: [
+        {
+          name: 'Priya & Arjun',
+          quote:
+            'They transformed our wedding venue into something timeless. Every detail felt premium and personal.',
+        },
+        {
+          name: 'Nivetha S.',
+          quote:
+            'From baby shower florals to stage lighting, everything was done with beautiful balance and speed.',
+        },
+        {
+          name: 'RK Industries',
+          quote:
+            'Their corporate stage and branding decor looked polished, modern, and very professional.',
+        },
+      ],
+    },
+    about: {
+      title: 'Our Story',
+      subtitle:
+        'K.S. ELAA & CO specializes in creating unforgettable moments through thoughtfully designed event decorations and stage setups. We blend traditional elegance with modern aesthetics to celebrate your special occasions.',
+      tags: ['Wedding Styling', 'Stage Concepts', 'Corporate Events'],
+      crafted: 'Crafted with Passion',
+      paragraphs: [
+        'Since our inception, we have been dedicated to transforming celebrations into works of art.',
+        'Our team combines creativity, precision, and a deep appreciation for Indian traditions with a contemporary touch.',
+        'From intimate family gatherings to grand celebrations, we work with you to understand your dream and deliver excellence at every stage.',
+      ],
+      stats: [
+        { number: '500+', label: 'Events Decorated' },
+        { number: '98%', label: 'Client Satisfaction' },
+        { number: '10+', label: 'Years Experience' },
+        { number: '24/7', label: 'Support Available' },
+      ],
+      valuesTitle: 'Our Values',
+      valuesSubtitle: 'What drives us to excellence',
+      values: [
+        {
+          title: 'Quality First',
+          description: 'Every detail is meticulously planned and executed with premium quality materials.',
+        },
+        {
+          title: 'Authenticity',
+          description: 'We honor traditions while embracing contemporary design for timeless results.',
+        },
+        {
+          title: 'Client-Centric',
+          description: 'Your vision, your budget, your timeline - we work around your needs completely.',
+        },
+        {
+          title: 'Innovation',
+          description: 'We stay ahead with fresh ideas and modern techniques in event decoration.',
+        },
+        {
+          title: 'Reliability',
+          description: 'Professional team with disciplined execution and punctuality across all projects.',
+        },
+        {
+          title: 'Affordability',
+          description: 'Premium decoration without burn-out budgets - flexible packages for everyone.',
+        },
+      ],
+      followUs: 'Follow Us',
+      instaText: 'Check out our latest event decorations and behind-the-scenes on Instagram',
+      instaButton: 'Visit Our Instagram',
+      craftedBy: 'Crafted By',
+      designedBy: 'Designed and developed with care by',
+      portfolio: 'Portfolio',
+      email: 'Email',
+      ctaTitle: 'Ready to Plan Your Event?',
+      ctaText: 'Let\'s create beautiful memories together. Get in touch with us today.',
+      ctaPrimary: 'Book Now',
+      ctaSecondary: 'View Services',
+    },
+  },
+}

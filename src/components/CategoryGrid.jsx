@@ -4,12 +4,12 @@ import { staggerContainer, fadeInUp } from '../utils/animations'
 
 const Motion = motion
 
-function CategoryGrid({ items, title, subtitle }) {
+function CategoryGrid({ items, title, subtitle, badgeLabel = 'Categories' }) {
   return (
     <section className="py-16 sm:py-20">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 space-y-3 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-mediumBrown">Categories</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-mediumBrown">{badgeLabel}</p>
           <h2 className="font-heading text-3xl text-brown sm:text-4xl">{title}</h2>
           <p className="mx-auto max-w-2xl text-textSecondary">{subtitle}</p>
         </div>

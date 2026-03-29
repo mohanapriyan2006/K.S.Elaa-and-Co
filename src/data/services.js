@@ -133,6 +133,7 @@ export const galleryPreview = galleryImages.slice(0, 8).map((img, index) => ({
   title: `Event Decoration ${index + 1}`,
 }))
 
+export const phoneNumber = '919489842773'
 export const whatsappNumber = '919489842773'
 
 // Developer Info

@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useLanguage } from '../context/useLanguage'
+import { content } from '../i18n/content'
 
 const initialValues = {
   name: '',
@@ -9,6 +11,9 @@ const initialValues = {
 }
 
 function ContactForm() {
+  const { language } = useLanguage()
+  const t = content[language]
+
   const [values, setValues] = useState(initialValues)
   const [errors, setErrors] = useState({})
   const [submitted, setSubmitted] = useState(false)
@@ -22,13 +27,13 @@ function ContactForm() {
   const validate = () => {
     const nextErrors = {}
 
-    if (!values.name.trim()) nextErrors.name = 'Name is required.'
+    if (!values.name.trim()) nextErrors.name = t.contactForm.errors.name
     if (!/^\d{10,15}$/.test(values.phone.replace(/\s+/g, ''))) {
-      nextErrors.phone = 'Enter a valid phone number.'
+      nextErrors.phone = t.contactForm.errors.phone
     }
-    if (!values.eventType) nextErrors.eventType = 'Please select event type.'
-    if (!values.eventDate) nextErrors.eventDate = 'Please choose event date.'
-    if (!values.message.trim()) nextErrors.message = 'Please tell us about your event.'
+    if (!values.eventType) nextErrors.eventType = t.contactForm.errors.eventType
+    if (!values.eventDate) nextErrors.eventDate = t.contactForm.errors.eventDate
+    if (!values.message.trim()) nextErrors.message = t.contactForm.errors.message
 
     return nextErrors
   }
@@ -52,7 +57,7 @@ function ContactForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="mb-2 block text-sm font-medium text-brown">
-            Name
+            {t.contactForm.name}
           </label>
           <input
             id="name"
@@ -60,14 +65,14 @@ function ContactForm() {
             value={values.name}
             onChange={handleChange}
             className="w-full rounded-xl border border-border px-4 py-3 text-sm outline-none transition focus:border-primary"
-            placeholder="Your full name"
+            placeholder={t.contactForm.yourName}
           />
           {errors.name && <p className="mt-2 text-xs text-red-600">{errors.name}</p>}
         </div>
 
         <div>
           <label htmlFor="phone" className="mb-2 block text-sm font-medium text-brown">
-            Phone
+            {t.contactForm.phone}
           </label>
           <input
             id="phone"
@@ -75,14 +80,14 @@ function ContactForm() {
             value={values.phone}
             onChange={handleChange}
             className="w-full rounded-xl border border-border px-4 py-3 text-sm outline-none transition focus:border-primary"
-            placeholder="10-15 digits"
+            placeholder={t.contactForm.digitsHint}
           />
           {errors.phone && <p className="mt-2 text-xs text-red-600">{errors.phone}</p>}
         </div>
 
         <div>
           <label htmlFor="eventType" className="mb-2 block text-sm font-medium text-brown">
-            Event Type
+            {t.contactForm.eventType}
           </label>
           <select
             id="eventType"
@@ -91,25 +96,25 @@ function ContactForm() {
             onChange={handleChange}
             className="w-full rounded-xl border border-border px-4 py-3 text-sm outline-none transition focus:border-primary"
           >
-            <option value="">Select event type</option>
-            <option value="Marriage">Marriage</option>
-            <option value="Reception">Reception</option>
-            <option value="Engagement">Engagement</option>
-            <option value="Haldi Decoration">Haldi Decoration</option>
-            <option value="Baby Shower">Baby Shower</option>
-            <option value="Birthday">Birthday</option>
-            <option value="Mannadu Panthal">Mannadu Panthal</option>
-            <option value="Party Decoration">Party Decoration</option>
-            <option value="Panthal Setup">Panthal Setup</option>
-            <option value="Kabbadi Stage Setup">Kabbadi Stage Setup</option>
-            <option value="Corporate Events">Corporate Events</option>
+            <option value="">{t.contactForm.selectEventType}</option>
+            <option value="Marriage">{t.contactForm.eventOptions.marriage}</option>
+            <option value="Reception">{t.contactForm.eventOptions.reception}</option>
+            <option value="Engagement">{t.contactForm.eventOptions.engagement}</option>
+            <option value="Haldi Decoration">{t.contactForm.eventOptions.haldiDecoration}</option>
+            <option value="Baby Shower">{t.contactForm.eventOptions.babyShower}</option>
+            <option value="Birthday">{t.contactForm.eventOptions.birthday}</option>
+            <option value="Mannadu Panthal">{t.contactForm.eventOptions.mannaduPanthal}</option>
+            <option value="Party Decoration">{t.contactForm.eventOptions.partyDecoration}</option>
+            <option value="Panthal Setup">{t.contactForm.eventOptions.panthalSetup}</option>
+            <option value="Kabbadi Stage Setup">{t.contactForm.eventOptions.kabbadiStageSetup}</option>
+            <option value="Corporate Events">{t.contactForm.eventOptions.corporateEvents}</option>
           </select>
           {errors.eventType && <p className="mt-2 text-xs text-red-600">{errors.eventType}</p>}
         </div>
 
         <div>
           <label htmlFor="eventDate" className="mb-2 block text-sm font-medium text-brown">
-            Event Date
+            {t.contactForm.eventDate}
           </label>
           <input
             id="eventDate"
@@ -125,7 +130,7 @@ function ContactForm() {
 
       <div>
         <label htmlFor="message" className="mb-2 block text-sm font-medium text-brown">
-          Message
+          {t.contactForm.message}
         </label>
         <textarea
           id="message"
@@ -134,7 +139,7 @@ function ContactForm() {
           onChange={handleChange}
           rows={5}
           className="w-full rounded-xl border border-border px-4 py-3 text-sm outline-none transition focus:border-primary"
-          placeholder="Tell us your style, venue, and event expectations"
+          placeholder={t.contactForm.messagePlaceholder}
         />
         {errors.message && <p className="mt-2 text-xs text-red-600">{errors.message}</p>}
       </div>
@@ -143,12 +148,12 @@ function ContactForm() {
         type="submit"
         className="w-full rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-brown transition hover:bg-primaryHover sm:w-auto"
       >
-        Send Inquiry
+        {t.contactForm.send}
       </button>
 
       {submitted && (
         <p className="rounded-xl bg-yellowSoft px-4 py-3 text-sm text-brown">
-          Thanks. Your event inquiry has been captured. We will contact you shortly.
+          {t.contactForm.success}
         </p>
       )}
     </form>

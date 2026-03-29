@@ -5,7 +5,6 @@ import {
   BriefcaseBusiness,
   Building2,
   Camera,
-  ExternalLink,
   GitBranch,
   Globe,
   Layers,
@@ -15,13 +14,21 @@ import {
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { fadeInUp, staggerContainer } from '../utils/animations'
-import { developer, companySocial } from '../data/services'
+import { developer, companySocial, serviceItems } from '../data/services'
+import { useLanguage } from '../context/useLanguage'
+import { content } from '../i18n/content'
 
 const Motion = motion
 
 const valueIcons = [BadgeCheck, Layers, ShieldCheck, Rocket, BriefcaseBusiness, Camera]
 
 function About() {
+  const { language } = useLanguage()
+  const t = content[language]
+  const aboutHeroImage =
+    serviceItems[3]?.image ||
+    'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1400&q=80'
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
@@ -35,26 +42,38 @@ function About() {
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="max-w-3xl"
+            className="grid items-center gap-10 lg:grid-cols-2"
           >
-            <Motion.h1
-              variants={fadeInUp}
-              className="font-heading text-5xl leading-tight text-brown sm:text-6xl lg:text-7xl"
-            >
-              Our Story
-            </Motion.h1>
-            <Motion.p
-              variants={fadeInUp}
-              className="mt-6 max-w-2xl text-lg text-textSecondary sm:text-xl"
-            >
-              K.S. ELAA & CO specializes in creating unforgettable moments through thoughtfully
-              designed event decorations and stage setups. We blend traditional elegance with modern
-              aesthetics to celebrate your special occasions.
-            </Motion.p>
-            <Motion.div variants={fadeInUp} className="mt-8 flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-brown/80">
-              <span className="rounded-full border border-primary/40 bg-white/70 px-3 py-1">Wedding Styling</span>
-              <span className="rounded-full border border-primary/40 bg-white/70 px-3 py-1">Stage Concepts</span>
-              <span className="rounded-full border border-primary/40 bg-white/70 px-3 py-1">Corporate Events</span>
+            <div className="max-w-3xl">
+              <Motion.h1
+                variants={fadeInUp}
+                className="font-heading text-4xl leading-tight text-brown sm:text-6xl lg:text-7xl"
+              >
+                {t.about.title}
+              </Motion.h1>
+              <Motion.p
+                variants={fadeInUp}
+                className="mt-6 max-w-2xl text-lg text-textSecondary sm:text-xl"
+              >
+                {t.about.subtitle}
+              </Motion.p>
+              <Motion.div variants={fadeInUp} className="mt-8 flex flex-wrap items-center gap-3 text-xs font-semibold text-brown/80">
+                {t.about.tags.map((tag) => (
+                  <span key={tag} className="rounded-full border border-primary/40 bg-white/70 px-3 py-1">{tag}</span>
+                ))}
+              </Motion.div>
+            </div>
+
+            <Motion.div variants={fadeInUp} className="mx-auto w-full max-w-xl">
+              <div className="relative overflow-hidden rounded-2xl border-2 border-primary/30 bg-white p-3 shadow-2xl">
+                <img
+                  src={aboutHeroImage}
+                  alt="Event decoration highlight"
+                  className="h-64 w-full rounded-xl object-cover sm:h-72 lg:h-80"
+                  loading="lazy"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brown/20 via-transparent to-transparent" />
+              </div>
             </Motion.div>
           </Motion.div>
         </div>
@@ -73,22 +92,12 @@ function About() {
             {/* Left Column */}
             <Motion.div variants={fadeInUp} className="space-y-6">
               <h2 className="font-heading text-3xl text-brown sm:text-4xl">
-                Crafted with Passion
+                {t.about.crafted}
               </h2>
               <div className="space-y-4 text-textSecondary leading-relaxed">
-                <p>
-                  Since our inception, we have been dedicated to transforming celebrations into works of art.
-                  Whether it's your dream wedding, milestone birthday, or corporate event, we bring vision to life
-                  with meticulous attention to detail.
-                </p>
-                <p>
-                  Our team combines creativity, precision, and a deep appreciation for Indian traditions with a
-                  contemporary touch. Every decoration is a story, every setup is a celebration of your unique moments.
-                </p>
-                <p>
-                  From intimate family gatherings to grand celebrations, we work with you to understand your dream
-                  and deliver excellence at every stage.
-                </p>
+                {t.about.paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
               </div>
             </Motion.div>
 
@@ -97,12 +106,7 @@ function About() {
               variants={staggerContainer}
               className="grid gap-6 sm:grid-cols-2"
             >
-              {[
-                { number: '500+', label: 'Events Decorated' },
-                { number: '98%', label: 'Client Satisfaction' },
-                { number: '10+', label: 'Years Experience' },
-                { number: '24/7', label: 'Support Available' },
-              ].map((stat) => (
+              {t.about.stats.map((stat) => (
                 <Motion.div
                   key={stat.label}
                   variants={fadeInUp}
@@ -127,8 +131,8 @@ function About() {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h2 className="font-heading text-3xl text-brown sm:text-4xl">Our Values</h2>
-            <p className="mt-4 text-textSecondary">What drives us to excellence</p>
+            <h2 className="font-heading text-3xl text-brown sm:text-4xl">{t.about.valuesTitle}</h2>
+            <p className="mt-4 text-textSecondary">{t.about.valuesSubtitle}</p>
           </Motion.div>
 
           <Motion.div
@@ -138,38 +142,7 @@ function About() {
             viewport={{ once: true, amount: 0.2 }}
             className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
           >
-            {[
-              {
-                title: 'Quality First',
-                description:
-                  'Every detail is meticulously planned and executed with premium quality materials.',
-              },
-              {
-                title: 'Authenticity',
-                description:
-                  'We honor traditions while embracing contemporary design for timeless results.',
-              },
-              {
-                title: 'Client-Centric',
-                description:
-                  'Your vision, your budget, your timeline - we work around your needs completely.',
-              },
-              {
-                title: 'Innovation',
-                description:
-                  'We stay ahead with fresh ideas and modern techniques in event decoration.',
-              },
-              {
-                title: 'Reliability',
-                description:
-                  'Professional team with disciplined execution and punctuality across all projects.',
-              },
-              {
-                title: 'Affordability',
-                description:
-                  'Premium decoration without burn-out budgets - flexible packages for everyone.',
-              },
-            ].map((value, index) => {
+            {t.about.values.map((value, index) => {
               const Icon = valueIcons[index % valueIcons.length]
               return (
                 <Motion.article
@@ -199,9 +172,9 @@ function About() {
             transition={{ duration: 0.6 }}
             className="rounded-2xl border border-primary/30 bg-gradient-to-br from-pink-50/50 to-primary/5 p-8 text-center md:p-12"
           >
-            <h2 className="font-heading text-3xl text-brown sm:text-4xl">Follow Us</h2>
+            <h2 className="font-heading text-3xl text-brown sm:text-4xl">{t.about.followUs}</h2>
             <p className="mt-3 text-textSecondary">
-              Check out our latest event decorations and behind-the-scenes on Instagram
+              {t.about.instaText}
             </p>
             <a
               href={companySocial.instagram}
@@ -210,7 +183,7 @@ function About() {
               className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-3 font-semibold text-white shadow-lg transition hover:shadow-xl hover:scale-105"
             >
               <Camera size={18} />
-              Visit Our Instagram
+              {t.about.instaButton}
             </a>
           </Motion.div>
         </div>
@@ -227,9 +200,9 @@ function About() {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h2 className="font-heading text-3xl text-brown sm:text-4xl">Crafted By</h2>
+            <h2 className="font-heading text-3xl text-brown sm:text-4xl">{t.about.craftedBy}</h2>
             <p className="mt-2 text-textSecondary">
-              Designed and developed with care by 
+              {t.about.designedBy}
             </p>
           </Motion.div>
 
@@ -249,7 +222,7 @@ function About() {
 
               <div className="mt-6 flex flex-wrap justify-center gap-4">
                 {[
-                  { label: 'Portfolio', url: developer.portfolio, icon: Globe },
+                  { label: t.about.portfolio, url: developer.portfolio, icon: Globe },
                   { label: 'GitHub', url: developer.github, icon: GitBranch },
                   { label: 'LinkedIn', url: developer.linkedin, icon: Building2 },
                 ].map((link) => (
@@ -269,7 +242,7 @@ function About() {
 
               <p className="mt-4 inline-flex items-center gap-1 text-xs text-textSecondary">
                 <Mail size={14} />
-                Email:
+                {t.about.email}:
                 <a href={`mailto:${developer.email}`} className="font-medium text-primary hover:text-primaryHover">
                   {developer.email}
                 </a>
@@ -291,24 +264,24 @@ function About() {
             className="space-y-6"
           >
             <h2 className="font-heading text-3xl text-brown sm:text-4xl">
-              Ready to Plan Your Event?
+              {t.about.ctaTitle}
             </h2>
             <p className="text-lg text-textSecondary">
-              Let's create beautiful memories together. Get in touch with us today.
+              {t.about.ctaText}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 to="/contact"
                 className="group inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 font-semibold text-brown shadow-soft transition hover:bg-primaryHover"
               >
-                Book Now
+                {t.about.ctaPrimary}
                 <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/services"
                 className="group inline-flex items-center gap-2 rounded-xl border border-border bg-white px-6 py-3 font-semibold text-brown transition hover:border-primary/60"
               >
-                View Services
+                {t.about.ctaSecondary}
                 <Camera size={18} className="transition-transform group-hover:translate-x-1" />
               </Link>
             </div>

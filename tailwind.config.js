@@ -18,7 +18,7 @@ export default {
       },
       fontFamily: {
         heading: ['"Playfair Display"', 'serif'],
-        body: ['Poppins', 'Inter', 'sans-serif'],
+        body: ['Poppins', '"Noto Sans Tamil"', 'Inter', 'sans-serif'],
       },
       boxShadow: {
         soft: '0 12px 35px -20px rgba(74, 46, 18, 0.35)',

@@ -1,27 +1,30 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-
-const links = [
-  { to: '/', label: 'Home' },
-  { to: '/services', label: 'Services' },
-  { to: '/about', label: 'About' },
-  { to: '/contact', label: 'Contact' },
-]
+import { useLanguage } from '../context/useLanguage'
+import { content } from '../i18n/content'
 
 function Navbar() {
   const [open, setOpen] = useState(false)
+  const { language } = useLanguage()
+  const t = content[language]
+
+  const links = [
+    { to: '/', label: t.nav.home },
+    { to: '/services', label: t.nav.services },
+    { to: '/about', label: t.nav.about },
+  ]
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/95 backdrop-blur-md">
       <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-3" aria-label="K.S. ELAA & CO home">
+        <Link to="/" className="flex min-w-0 items-center gap-3" aria-label="K.S. ELAA & CO home">
           <img
             src="/K-S-Elaa&co-logo.png"
             alt="K.S. ELAA & CO logo"
             className="h-10 w-10 rounded-full border border-primary/30 object-cover"
             loading="eager"
           />
-          <span className="font-heading text-lg text-brown">K.S. ELAA & CO</span>
+          <span className="truncate font-heading text-base text-brown sm:text-lg">K.S. ELAA & CO</span>
         </Link>
 
         <button
@@ -31,7 +34,7 @@ function Navbar() {
           aria-expanded={open}
           aria-label="Toggle menu"
         >
-          Menu
+          {t.nav.menu}
         </button>
 
         <div className="hidden items-center gap-7 md:flex">
@@ -52,7 +55,7 @@ function Navbar() {
             to="/contact"
             className="rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-brown shadow-soft transition hover:bg-primaryHover"
           >
-            Book Now
+            {t.nav.bookNow}
           </Link>
         </div>
       </nav>
@@ -79,7 +82,7 @@ function Navbar() {
               className="rounded-xl bg-primary px-4 py-2 text-center text-sm font-semibold text-brown"
               onClick={() => setOpen(false)}
             >
-              Book Now
+              {t.nav.bookNow}
             </Link>
           </div>
         </div>

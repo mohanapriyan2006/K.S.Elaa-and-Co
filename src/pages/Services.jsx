@@ -1,11 +1,23 @@
 import { useMemo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import FilterTabs from '../components/FilterTabs'
-import { filterTabs, serviceItems } from '../data/services'
+import { serviceItems } from '../data/services'
+import { useLanguage } from '../context/useLanguage'
+import { content } from '../i18n/content'
 
 const Motion = motion
 
 function Services() {
+  const { language } = useLanguage()
+  const t = content[language]
+  const tabItems = [
+    { value: 'All', label: t.servicesPage.tabs.all },
+    { value: 'Wedding', label: t.servicesPage.tabs.wedding },
+    { value: 'Celebrations', label: t.servicesPage.tabs.celebrations },
+    { value: 'Panthal & Stage', label: t.servicesPage.tabs.panthal },
+    { value: 'Corporate', label: t.servicesPage.tabs.corporate },
+  ]
+
   const [activeTab, setActiveTab] = useState('All')
 
   const filteredItems = useMemo(() => {
@@ -17,14 +29,14 @@ function Services() {
     <section className="py-16 sm:py-20">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 space-y-3">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-mediumBrown">Portfolio</p>
-          <h1 className="font-heading text-4xl text-brown sm:text-5xl">Services & Decor Gallery</h1>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-mediumBrown">{t.servicesPage.badge}</p>
+          <h1 className="font-heading text-4xl text-brown sm:text-5xl">{t.servicesPage.title}</h1>
           <p className="max-w-3xl text-textSecondary">
-            Explore hand-crafted setups across weddings, celebrations, panthal work, stage designs, and corporate experiences.
+            {t.servicesPage.subtitle}
           </p>
         </div>
 
-        <FilterTabs tabs={filterTabs} activeTab={activeTab} onChange={setActiveTab} />
+        <FilterTabs tabs={tabItems} activeTab={activeTab} onChange={setActiveTab} />
 
         <Motion.div layout className="columns-1 gap-4 space-y-4 md:columns-2 lg:columns-3">
           <AnimatePresence>
