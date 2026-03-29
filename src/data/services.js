@@ -126,8 +126,8 @@ export const galleryPreview = galleryImages.slice(0, 8).map((img, index) => ({
   title: `Event Decoration ${index + 1}`,
 }))
 
-export const phoneNumber = '919489842773'
-export const whatsappNumber = '919489842773'
+export const phoneNumber = '919443075773'
+export const whatsappNumber = '919344768115'
 
 // Developer Info
 export const developer = {
@@ -142,6 +142,5 @@ export const developer = {
 // Company Social Info
 export const companySocial = {
   instagram: 'https://www.instagram.com/k.s.elaa_and__co/',
-  facebook: 'https://facebook.com/kselsaa',
   whatsapp: whatsappNumber,
 }

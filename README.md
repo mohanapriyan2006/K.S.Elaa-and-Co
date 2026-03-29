@@ -19,8 +19,37 @@ Premium, minimal frontend website for an Indian event decoration company.
 - Services filtering: All, Wedding, Celebrations, Panthal & Stage, Corporate
 - Masonry-style gallery sections
 - Contact form with client-side validation
+- EmailJS-powered booking request submissions
 - Floating WhatsApp click-to-chat CTA
 - Mobile-first responsive layout
+
+## EmailJS Setup
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Create a local environment file from [.env.example](.env.example):
+
+```bash
+cp .env.example .env
+```
+
+3. Fill the EmailJS values in [.env](.env):
+
+- VITE_SERVICE_ID
+- VITE_TEMPLATE_ID
+- VITE_PUBLIC_KEY
+
+4. Ensure your EmailJS template has the following variables:
+
+- name
+- phone
+- event_type
+- event_date
+- message
 
 ## Project Structure
 

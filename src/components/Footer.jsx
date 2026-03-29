@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/useLanguage'
 import { content } from '../i18n/content'
+import { companySocial, phoneNumber, whatsappNumber } from '../data/services'
 
 function Footer() {
   const { language } = useLanguage()
@@ -18,6 +19,24 @@ function Footer() {
             {t.footer.serviceAreaText}
           </p>
           <p className="text-sm text-textSecondary">{t.footer.hoursText}</p>
+          <div className="flex flex-wrap items-center gap-3 pt-1 text-sm text-textSecondary">
+            <a
+              href={companySocial.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-brown transition hover:text-primaryHover"
+            >
+              {t.floating.instagram}
+            </a>
+            <span>|</span>
+            <a href={`tel:+${phoneNumber}`} className="font-medium text-brown transition hover:text-primaryHover">
+              +91 94430 75773
+            </a>
+            <span>|</span>
+            <a href={`tel:+${whatsappNumber}`} className="font-medium text-brown transition hover:text-primaryHover">
+              +91 93447 68115
+            </a>
+          </div>
         </div>
 
         <div className="flex flex-wrap gap-5 text-sm font-medium text-textSecondary">

@@ -1,9 +1,10 @@
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { Camera, Globe2, MessageCircle, PhoneCall } from 'lucide-react'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
+import PageLoader from './components/PageLoader'
 import SeoManager from './components/SeoManager'
 import { companySocial, phoneNumber, whatsappNumber } from './data/services'
 import Contact from './pages/Contact'
@@ -58,7 +59,7 @@ function FloatingContactActions() {
       id: 'instagram',
       href: companySocial.instagram,
       label: t.floating.instagram,
-      icon: Camera,
+      icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1280px-Instagram_logo_2022.svg.png",
       className: 'bg-gradient-to-r from-pink-500 to-rose-500 text-white',
       external: true,
     },
@@ -82,7 +83,12 @@ function FloatingContactActions() {
   return (
     <div className="fixed bottom-4 right-3 z-50 flex flex-col gap-3 sm:bottom-5 sm:right-5">
       {actions.map((action) => {
-        const Icon = action.icon
+        var Icon;
+        if(action.id === 'instagram') {
+          Icon = action.icon ? () => <img src={action.icon} alt={action.label} className="h-4 w-4" /> : Camera;
+        } else {
+          Icon = action.icon;
+        }
         return (
           <a
             key={action.id}
@@ -168,8 +174,58 @@ function AnimatedRoutes() {
 }
 
 function App() {
+  const location = useLocation()
+  const [isInitialLoading, setIsInitialLoading] = useState(true)
+  const [isRouteLoading, setIsRouteLoading] = useState(false)
+  const isFirstRouteRender = useRef(true)
+
+  useEffect(() => {
+    const minimumLoadDuration = 900
+    const startTime = Date.now()
+    let timeoutId
+
+    const finishInitialLoad = () => {
+      const elapsed = Date.now() - startTime
+      const remaining = Math.max(0, minimumLoadDuration - elapsed)
+
+      timeoutId = window.setTimeout(() => {
+        setIsInitialLoading(false)
+      }, remaining)
+    }
+
+    if (document.readyState === 'complete') {
+      finishInitialLoad()
+    } else {
+      window.addEventListener('load', finishInitialLoad, { once: true })
+    }
+
+    return () => {
+      window.removeEventListener('load', finishInitialLoad)
+      if (timeoutId) window.clearTimeout(timeoutId)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (isInitialLoading) return undefined
+
+    if (isFirstRouteRender.current) {
+      isFirstRouteRender.current = false
+      return undefined
+    }
+
+    setIsRouteLoading(true)
+    const timeoutId = window.setTimeout(() => {
+      setIsRouteLoading(false)
+    }, 420)
+
+    return () => {
+      window.clearTimeout(timeoutId)
+    }
+  }, [location.pathname, isInitialLoading])
+
   return (
     <div className="min-h-screen bg-background font-body text-textPrimary">
+      <PageLoader show={isInitialLoading || isRouteLoading} />
       <SeoManager />
       <ScrollToTop />
       <Navbar />
