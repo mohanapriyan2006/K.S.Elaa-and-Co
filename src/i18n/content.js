@@ -113,6 +113,7 @@ export const content = {
         panthalSetup: 'பந்தல் அமைப்பு',
         kabbadiStageSetup: 'கபடி மேடை அமைப்பு',
         corporateEvents: 'நிறுவன நிகழ்வுகள்',
+        other: 'மற்றவை',
       },
     },
     home: {
@@ -372,6 +373,7 @@ export const content = {
         panthalSetup: 'Panthal Setup',
         kabbadiStageSetup: 'Kabbadi Stage Setup',
         corporateEvents: 'Corporate Events',
+        other: 'Other',
       },
     },
     home: {

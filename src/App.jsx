@@ -1,9 +1,10 @@
-import { act, useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { Camera, Globe2, MessageCircle, PhoneCall } from 'lucide-react'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
+import PageLoader from './components/PageLoader'
 import SeoManager from './components/SeoManager'
 import { companySocial, phoneNumber, whatsappNumber } from './data/services'
 import Contact from './pages/Contact'
@@ -173,8 +174,58 @@ function AnimatedRoutes() {
 }
 
 function App() {
+  const location = useLocation()
+  const [isInitialLoading, setIsInitialLoading] = useState(true)
+  const [isRouteLoading, setIsRouteLoading] = useState(false)
+  const isFirstRouteRender = useRef(true)
+
+  useEffect(() => {
+    const minimumLoadDuration = 900
+    const startTime = Date.now()
+    let timeoutId
+
+    const finishInitialLoad = () => {
+      const elapsed = Date.now() - startTime
+      const remaining = Math.max(0, minimumLoadDuration - elapsed)
+
+      timeoutId = window.setTimeout(() => {
+        setIsInitialLoading(false)
+      }, remaining)
+    }
+
+    if (document.readyState === 'complete') {
+      finishInitialLoad()
+    } else {
+      window.addEventListener('load', finishInitialLoad, { once: true })
+    }
+
+    return () => {
+      window.removeEventListener('load', finishInitialLoad)
+      if (timeoutId) window.clearTimeout(timeoutId)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (isInitialLoading) return undefined
+
+    if (isFirstRouteRender.current) {
+      isFirstRouteRender.current = false
+      return undefined
+    }
+
+    setIsRouteLoading(true)
+    const timeoutId = window.setTimeout(() => {
+      setIsRouteLoading(false)
+    }, 420)
+
+    return () => {
+      window.clearTimeout(timeoutId)
+    }
+  }, [location.pathname, isInitialLoading])
+
   return (
     <div className="min-h-screen bg-background font-body text-textPrimary">
+      <PageLoader show={isInitialLoading || isRouteLoading} />
       <SeoManager />
       <ScrollToTop />
       <Navbar />

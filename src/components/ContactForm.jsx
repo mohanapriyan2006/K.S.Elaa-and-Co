@@ -137,6 +137,7 @@ function ContactForm() {
               <option value="Panthal Setup">{t.contactForm.eventOptions.panthalSetup}</option>
               <option value="Kabbadi Stage Setup">{t.contactForm.eventOptions.kabbadiStageSetup}</option>
               <option value="Corporate Events">{t.contactForm.eventOptions.corporateEvents}</option>
+              <option value="Other">{t.contactForm.eventOptions.other}</option>
             </select>
             {errors.eventType && <p className="mt-2 text-xs text-red-600">{errors.eventType}</p>}
           </div>
