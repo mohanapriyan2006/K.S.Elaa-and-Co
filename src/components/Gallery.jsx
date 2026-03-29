@@ -36,7 +36,7 @@ function Gallery({ items, title = 'Gallery Preview', badgeLabel = 'Showcase', bu
             >
               <img
                 src={item.image}
-                alt={item.title}
+                alt={`${item.title} decoration in Thanjavur and Trichy by K.S. ELAA & CO`}
                 loading="lazy"
                 className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
               />

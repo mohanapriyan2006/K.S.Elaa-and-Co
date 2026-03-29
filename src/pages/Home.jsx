@@ -24,6 +24,34 @@ function Home() {
     homeContent?.testimonials?.length ? homeContent.testimonials : testimonials
   const safeTestimonialIndex = activeTestimonial % localizedTestimonials.length
 
+  const homeFaqs = [
+    {
+      q: 'Do you provide wedding decorators near me in Thanjavur and Trichy?',
+      a: 'Yes. K.S. ELAA & CO provides wedding decoration services across Thanjavur, Trichy, and nearby areas in Tamil Nadu.',
+    },
+    {
+      q: 'Can I book haldi and reception decoration as a combined package?',
+      a: 'Yes. We provide customized event packages that combine haldi, engagement, wedding, and reception decoration based on your timeline and budget.',
+    },
+    {
+      q: 'Do you offer panthal setup for traditional functions?',
+      a: 'Yes. We provide mannadu panthal and panthal setup services with traditional styling and practical layout planning.',
+    },
+  ]
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: homeFaqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  }
+
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveTestimonial((prev) => (prev + 1) % localizedTestimonials.length)
@@ -34,6 +62,8 @@ function Home() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
       <Hero />
 
       <CategoryGrid
@@ -42,6 +72,32 @@ function Home() {
         subtitle={homeContent.categoriesSubtitle}
         badgeLabel={homeContent.categoriesBadge}
       />
+
+      <section className="py-8 sm:py-10">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <article className="rounded-2xl border border-border bg-white p-6 shadow-soft sm:p-8">
+            <h2 className="font-heading text-3xl text-brown">Event Decorators in Thanjavur and Trichy</h2>
+            <p className="mt-4 leading-relaxed text-textSecondary">
+              K.S. ELAA & CO provides wedding decoration, haldi decoration, engagement decoration,
+              reception setup, baby shower decoration, birthday decoration, mannadu panthal, panthal setup,
+              kabbadi stage setup, and corporate event decoration services across Thanjavur and Trichy. If you
+              are searching for event decorators in Tamil Nadu who can deliver elegant design with dependable
+              execution, our team offers city-focused support and practical packages for all event sizes.
+            </p>
+            <p className="mt-3 leading-relaxed text-textSecondary">
+              Planning a traditional ceremony? Explore our{' '}
+              <Link to="/panthal-setup" className="font-semibold text-brown underline">Panthal Setup</Link>
+              {' '}and{' '}
+              <Link to="/mannadu-panthal" className="font-semibold text-brown underline">Mannadu Panthal</Link>
+              {' '}services. Looking for pre-wedding functions? Check our{' '}
+              <Link to="/haldi-decoration" className="font-semibold text-brown underline">Haldi Decoration</Link>
+              {' '}and{' '}
+              <Link to="/engagement-decoration" className="font-semibold text-brown underline">Engagement Decoration</Link>
+              {' '}pages.
+            </p>
+          </article>
+        </div>
+      </section>
 
       {/* Why Choose Us Section - Enhanced */}
       <section className="bg-gradient-to-br from-white/50 via-yellowSoft/10 to-primary/5 py-8 sm:py-12 lg:py-16">
@@ -147,6 +203,22 @@ function Home() {
       {/* Gallery Section */}
       <section className="bg-white/30 py-12 sm:py-16 lg:py-20">
         <Gallery items={galleryPreview} title={homeContent.galleryTitle} buttonLabel={homeContent.galleryButton} />
+      </section>
+
+      <section className="py-10 sm:py-14">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-2xl border border-border bg-white p-6 shadow-soft sm:p-8">
+            <h2 className="font-heading text-3xl text-brown">Frequently Asked Questions</h2>
+            <div className="mt-6 space-y-4">
+              {homeFaqs.map((faq) => (
+                <article key={faq.q} className="rounded-xl border border-border/70 bg-background p-4">
+                  <h3 className="font-semibold text-brown">{faq.q}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-textSecondary">{faq.a}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* CTA Section - Enhanced */}

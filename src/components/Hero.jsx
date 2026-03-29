@@ -108,7 +108,9 @@ function Hero() {
             <div className="relative overflow-hidden rounded-[2rem] bg-gray-100">
               <img
                 src={heroImage}
-                alt="Indian wedding stage decoration with elegant floral arrangements"
+                alt="Wedding decoration setup in Thanjavur and Trichy by K.S. ELAA & CO"
+                width="1280"
+                height="896"
                 className="h-80 w-full object-cover sm:h-[28rem]"
                 loading="eager"
               />

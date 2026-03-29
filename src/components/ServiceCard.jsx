@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { hoverLift } from '../utils/animations'
 
 const Motion = motion
@@ -12,12 +13,14 @@ function ServiceCard({ item }) {
       className="group relative overflow-hidden rounded-2xl border border-border/80 bg-white shadow-soft"
     >
       <div className="mx-3 mt-3 overflow-hidden rounded-t-[999px]">
-        <img
-          src={item.image}
-          alt={item.title}
-          loading="lazy"
-          className="h-72 w-full object-cover transition duration-500 group-hover:scale-110"
-        />
+        <Link to={`/${item.slug}`} aria-label={`${item.title} in Thanjavur and Trichy`}>
+          <img
+            src={item.image}
+            alt={`${item.title} setup in Thanjavur and Trichy by K.S. ELAA & CO`}
+            loading="lazy"
+            className="h-72 w-full object-cover transition duration-500 group-hover:scale-110"
+          />
+        </Link>
       </div>
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brown/70 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
       <div className="absolute bottom-4 left-4 right-4">
@@ -26,7 +29,11 @@ function ServiceCard({ item }) {
         </p>
       </div>
       <div className="px-5 pb-5 pt-4">
-        <h3 className="font-heading text-xl text-brown">{item.title}</h3>
+        <h3 className="font-heading text-xl text-brown">
+          <Link to={`/${item.slug}`} className="hover:underline">
+            {item.title}
+          </Link>
+        </h3>
       </div>
     </Motion.article>
   )
