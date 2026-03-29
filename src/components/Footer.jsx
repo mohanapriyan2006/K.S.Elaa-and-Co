@@ -43,6 +43,27 @@ function Footer() {
 
         <p className="max-w-sm text-sm text-textSecondary lg:text-right">{t.footer.crafted}</p>
       </div>
+
+      <div className="mx-auto mt-6 flex w-full max-w-7xl flex-wrap items-center gap-2 px-4 text-xs text-textSecondary sm:px-6 lg:px-8">
+        <span>Developed by Mohanapriyan M:</span>
+        <a
+          href="https://mohanapriyan.dev/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-brown transition hover:text-primaryHover"
+        >
+          mohanapriyan.dev
+        </a>
+        <span>|</span>
+        <a
+          href="https://mohanapriyan.netlify.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-brown transition hover:text-primaryHover"
+        >
+          mohanapriyan.netlify.app
+        </a>
+      </div>
     </footer>
   )
 }
