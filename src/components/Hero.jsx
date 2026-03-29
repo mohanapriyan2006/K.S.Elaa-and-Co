@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { ArrowRight, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { fadeInUp, staggerContainer } from '../utils/animations'
 import { serviceItems } from '../data/services'
@@ -6,7 +7,9 @@ import { serviceItems } from '../data/services'
 const Motion = motion
 
 function Hero() {
-  const heroImage = serviceItems[3]?.image || 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80';
+  const heroImage =
+    serviceItems[3]?.image ||
+    'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80'
 
   return (
     <section className="relative isolate overflow-hidden bg-gradient-to-br from-background via-yellowSoft/10 to-primary/10 py-24 sm:py-32 lg:py-40">
@@ -24,9 +27,10 @@ function Hero() {
         >
           <Motion.p
             variants={fadeInUp}
-            className="inline-flex rounded-full border border-primary/40 bg-gradient-to-r from-yellowSoft to-yellow-100 px-4 py-2 text-xs font-bold uppercase tracking-[0.3em] text-brown shadow-sm"
+            className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-gradient-to-r from-yellowSoft to-yellow-100 px-4 py-2 text-xs font-bold uppercase tracking-[0.3em] text-brown shadow-sm"
           >
-            ✨ Elegant Event Design
+            <Sparkles size={14} strokeWidth={2.2} />
+            Elegant Event Design
           </Motion.p>
           
           <Motion.h1
@@ -53,7 +57,10 @@ function Hero() {
               to="/contact"
               className="group relative rounded-xl bg-gradient-to-r from-primary to-primaryHover px-8 py-4 text-base font-semibold text-brown shadow-lg transition hover:shadow-xl hover:scale-105 overflow-hidden"
             >
-              <span className="relative z-10">Book Your Event</span>
+              <span className="relative z-10 inline-flex items-center gap-2">
+                Book Your Event
+                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+              </span>
               <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300" />
             </Link>
             <Link

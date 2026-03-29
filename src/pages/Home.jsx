@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { ArrowRight, CircleDollarSign, Palette, Sparkles, Star, Zap } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import Hero from '../components/Hero'
 import CategoryGrid from '../components/CategoryGrid'
@@ -8,6 +9,8 @@ import { galleryPreview, serviceItems, testimonials, whyChooseUs } from '../data
 import { fadeInUp, staggerContainer } from '../utils/animations'
 
 const Motion = motion
+
+const whyUsIcons = [Sparkles, Palette, CircleDollarSign, Zap]
 
 function Home() {
   const [activeTestimonial, setActiveTestimonial] = useState(0)
@@ -58,10 +61,11 @@ function Home() {
                 className="group relative rounded-2xl border border-primary/20 bg-white p-8 shadow-soft transition hover:shadow-lg hover:border-primary/40"
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-yellow-400 to-transparent rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 to-yellowSoft/30 flex items-center justify-center mb-4">
-                  <span className="text-2xl">
-                    {['✨', '🎨', '💰', '⚡'][index % 4]}
-                  </span>
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 to-yellowSoft/30 flex items-center justify-center mb-4 text-brown">
+                  {(() => {
+                    const Icon = whyUsIcons[index % whyUsIcons.length]
+                    return <Icon size={22} strokeWidth={2.2} />
+                  })()}
                 </div>
                 <h3 className="font-heading text-xl text-brown">{point.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-textSecondary">{point.description}</p>
@@ -96,9 +100,9 @@ function Home() {
                   transition={{ duration: 0.4 }}
                   className="space-y-6 text-center"
                 >
-                  <div className="flex justify-center gap-1">
+                  <div className="flex justify-center gap-1 text-amber-500">
                     {[...Array(5)].map((_, i) => (
-                      <span key={i} className="text-xl">⭐</span>
+                      <Star key={i} size={18} fill="currentColor" strokeWidth={1.5} />
                     ))}
                   </div>
                   <blockquote className="text-xl leading-relaxed text-textSecondary italic italic">
@@ -161,7 +165,7 @@ function Home() {
                 className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-primaryHover px-8 py-4 font-semibold text-brown shadow-lg transition hover:shadow-xl hover:scale-105"
               >
                 Get Started
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
+                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/services"

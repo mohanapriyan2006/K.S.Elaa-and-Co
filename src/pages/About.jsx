@@ -1,17 +1,34 @@
 import { motion } from 'framer-motion'
+import {
+  ArrowRight,
+  BadgeCheck,
+  BriefcaseBusiness,
+  Building2,
+  Camera,
+  ExternalLink,
+  GitBranch,
+  Globe,
+  Layers,
+  Mail,
+  Rocket,
+  ShieldCheck,
+} from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { fadeInUp, staggerContainer } from '../utils/animations'
 import { developer, companySocial } from '../data/services'
 
 const Motion = motion
 
+const valueIcons = [BadgeCheck, Layers, ShieldCheck, Rocket, BriefcaseBusiness, Camera]
+
 function About() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative isolate overflow-hidden bg-gradient-to-br from-yellowSoft to-primary/10 py-20 sm:py-28 lg:py-32">
+      <section className="relative isolate overflow-hidden bg-gradient-to-br from-yellowSoft via-background to-primary/10 py-20 sm:py-28 lg:py-32">
         <div className="absolute left-[-10rem] top-20 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
         <div className="absolute bottom-0 right-[-8rem] h-80 w-80 rounded-full bg-yellowSoft/30 blur-3xl" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
 
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <Motion.div
@@ -34,6 +51,11 @@ function About() {
               designed event decorations and stage setups. We blend traditional elegance with modern
               aesthetics to celebrate your special occasions.
             </Motion.p>
+            <Motion.div variants={fadeInUp} className="mt-8 flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-brown/80">
+              <span className="rounded-full border border-primary/40 bg-white/70 px-3 py-1">Wedding Styling</span>
+              <span className="rounded-full border border-primary/40 bg-white/70 px-3 py-1">Stage Concepts</span>
+              <span className="rounded-full border border-primary/40 bg-white/70 px-3 py-1">Corporate Events</span>
+            </Motion.div>
           </Motion.div>
         </div>
       </section>
@@ -147,16 +169,21 @@ function About() {
                 description:
                   'Premium decoration without burn-out budgets - flexible packages for everyone.',
               },
-            ].map((value) => (
+            ].map((value, index) => {
+              const Icon = valueIcons[index % valueIcons.length]
+              return (
               <Motion.article
                 key={value.title}
                 variants={fadeInUp}
-                className="rounded-xl border border-border bg-white p-6 shadow-soft"
+                className="group rounded-xl border border-border bg-white p-6 shadow-soft transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
               >
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-yellowSoft to-primary/20 text-brown">
+                  <Icon size={18} strokeWidth={2.2} />
+                </div>
                 <h3 className="font-heading text-lg text-brown">{value.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-textSecondary">{value.description}</p>
               </Motion.article>
-            ))}
+            )})}
           </Motion.div>
         </div>
       </section>
@@ -193,9 +220,9 @@ function About() {
 
               <div className="mt-6 flex flex-wrap justify-center gap-4">
                 {[
-                  { label: 'Portfolio', url: developer.portfolio, icon: '🌐' },
-                  { label: 'GitHub', url: developer.github, icon: '🔗' },
-                  { label: 'LinkedIn', url: developer.linkedin, icon: '💼' },
+                  { label: 'Portfolio', url: developer.portfolio, icon: Globe },
+                  { label: 'GitHub', url: developer.github, icon: GitBranch },
+                  { label: 'LinkedIn', url: developer.linkedin, icon: Building2 },
                 ].map((link) => (
                   <a
                     key={link.label}
@@ -205,14 +232,15 @@ function About() {
                     className="inline-flex items-center gap-2 rounded-lg border border-border bg-white px-4 py-2 text-sm font-medium text-brown transition hover:bg-yellowSoft hover:border-primary"
                     aria-label={link.label}
                   >
-                    <span>{link.icon}</span>
+                    <link.icon size={16} strokeWidth={2.2} />
                     {link.label}
                   </a>
                 ))}
               </div>
 
-              <p className="mt-4 text-xs text-textSecondary">
-                Email:{' '}
+              <p className="mt-4 inline-flex items-center gap-1 text-xs text-textSecondary">
+                <Mail size={14} />
+                Email:
                 <a href={`mailto:${developer.email}`} className="font-medium text-primary hover:text-primaryHover">
                   {developer.email}
                 </a>
@@ -242,7 +270,7 @@ function About() {
               rel="noopener noreferrer"
               className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-3 font-semibold text-white shadow-lg transition hover:shadow-xl hover:scale-105"
             >
-              <span>📸</span>
+              <Camera size={18} />
               Visit Our Instagram
             </a>
           </Motion.div>
@@ -268,15 +296,17 @@ function About() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 to="/contact"
-                className="rounded-xl bg-primary px-6 py-3 font-semibold text-brown shadow-soft transition hover:bg-primaryHover"
+                className="group inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 font-semibold text-brown shadow-soft transition hover:bg-primaryHover"
               >
                 Book Now
+                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/services"
-                className="rounded-xl border border-border bg-white px-6 py-3 font-semibold text-brown transition hover:border-primary/60"
+                className="group inline-flex items-center gap-2 rounded-xl border border-border bg-white px-6 py-3 font-semibold text-brown transition hover:border-primary/60"
               >
                 View Services
+                <Camera size={18} className="transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
           </Motion.div>
