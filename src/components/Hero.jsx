@@ -12,7 +12,7 @@ function Hero() {
     'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80'
 
   return (
-    <section className="relative isolate overflow-hidden bg-gradient-to-br from-background via-yellowSoft/10 to-primary/10 py-24 sm:py-32 lg:py-40">
+    <section className="relative isolate overflow-hidden bg-gradient-to-br from-background via-yellowSoft/10 to-primary/10 pb-8 sm:pb-18 lg:pb-24 px-4 sm:px-6 lg:px-8 pt-4 sm:pt-8 lg:pt-12">
       {/* Animated background elements */}
       <div className="absolute left-[-7rem] top-10 h-72 w-72 rounded-full bg-primary/20 blur-3xl animate-pulse" />
       <div className="absolute bottom-8 right-[-5rem] h-80 w-80 rounded-full bg-yellowSoft/30 blur-3xl animate-pulse" />

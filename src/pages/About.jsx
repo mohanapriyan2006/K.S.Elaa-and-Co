@@ -77,16 +77,16 @@ function About() {
               </h2>
               <div className="space-y-4 text-textSecondary leading-relaxed">
                 <p>
-                  Since our inception, we have been dedicated to transforming celebrations into works of art. 
-                  Whether it's your dream wedding, milestone birthday, or corporate event, we bring vision to life 
+                  Since our inception, we have been dedicated to transforming celebrations into works of art.
+                  Whether it's your dream wedding, milestone birthday, or corporate event, we bring vision to life
                   with meticulous attention to detail.
                 </p>
                 <p>
-                  Our team combines creativity, precision, and a deep appreciation for Indian traditions with a 
+                  Our team combines creativity, precision, and a deep appreciation for Indian traditions with a
                   contemporary touch. Every decoration is a story, every setup is a celebration of your unique moments.
                 </p>
                 <p>
-                  From intimate family gatherings to grand celebrations, we work with you to understand your dream 
+                  From intimate family gatherings to grand celebrations, we work with you to understand your dream
                   and deliver excellence at every stage.
                 </p>
               </div>
@@ -172,21 +172,50 @@ function About() {
             ].map((value, index) => {
               const Icon = valueIcons[index % valueIcons.length]
               return (
-              <Motion.article
-                key={value.title}
-                variants={fadeInUp}
-                className="group rounded-xl border border-border bg-white p-6 shadow-soft transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
-              >
-                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-yellowSoft to-primary/20 text-brown">
-                  <Icon size={18} strokeWidth={2.2} />
-                </div>
-                <h3 className="font-heading text-lg text-brown">{value.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-textSecondary">{value.description}</p>
-              </Motion.article>
-            )})}
+                <Motion.article
+                  key={value.title}
+                  variants={fadeInUp}
+                  className="group rounded-xl border border-border bg-white p-6 shadow-soft transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+                >
+                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-yellowSoft to-primary/20 text-brown">
+                    <Icon size={18} strokeWidth={2.2} />
+                  </div>
+                  <h3 className="font-heading text-lg text-brown">{value.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-textSecondary">{value.description}</p>
+                </Motion.article>
+              )
+            })}
           </Motion.div>
         </div>
       </section>
+
+      {/* Instagram Section */}
+      <section className="border-t border-border bg-white/30 py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <Motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6 }}
+            className="rounded-2xl border border-primary/30 bg-gradient-to-br from-pink-50/50 to-primary/5 p-8 text-center md:p-12"
+          >
+            <h2 className="font-heading text-3xl text-brown sm:text-4xl">Follow Us</h2>
+            <p className="mt-3 text-textSecondary">
+              Check out our latest event decorations and behind-the-scenes on Instagram
+            </p>
+            <a
+              href={companySocial.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-3 font-semibold text-white shadow-lg transition hover:shadow-xl hover:scale-105"
+            >
+              <Camera size={18} />
+              Visit Our Instagram
+            </a>
+          </Motion.div>
+        </div>
+      </section>
+
 
       {/* Developer Section */}
       <section className="py-16 sm:py-20 lg:py-24">
@@ -200,7 +229,7 @@ function About() {
           >
             <h2 className="font-heading text-3xl text-brown sm:text-4xl">Crafted By</h2>
             <p className="mt-2 text-textSecondary">
-              Designed and developed with care by our technical team
+              Designed and developed with care by 
             </p>
           </Motion.div>
 
@@ -250,32 +279,6 @@ function About() {
         </div>
       </section>
 
-      {/* Instagram Section */}
-      <section className="border-t border-border bg-white/30 py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
-            className="rounded-2xl border border-primary/30 bg-gradient-to-br from-pink-50/50 to-primary/5 p-8 text-center md:p-12"
-          >
-            <h2 className="font-heading text-3xl text-brown sm:text-4xl">Follow Us</h2>
-            <p className="mt-3 text-textSecondary">
-              Check out our latest event decorations and behind-the-scenes on Instagram
-            </p>
-            <a
-              href={companySocial.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 px-6 py-3 font-semibold text-white shadow-lg transition hover:shadow-xl hover:scale-105"
-            >
-              <Camera size={18} />
-              Visit Our Instagram
-            </a>
-          </Motion.div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="bg-gradient-to-r from-primary/10 to-yellowSoft/20 py-16 sm:py-20 lg:py-24">
