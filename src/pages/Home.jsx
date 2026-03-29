@@ -66,7 +66,7 @@ function Home() {
           >
             {whyCards.map((point, index) => (
               <Motion.article
-                key={point.title}
+                key={`why-card-${index}`}
                 variants={fadeInUp}
                 className="group relative rounded-2xl border border-primary/20 bg-white p-8 shadow-soft transition hover:shadow-lg hover:border-primary/40"
               >

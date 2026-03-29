@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { fadeInUp, staggerContainer } from '../utils/animations'
-import { galleryImages, serviceItems } from '../data/services'
+import { galleryImages } from '../data/services'
 import { useLanguage } from '../context/useLanguage'
 import { content } from '../i18n/content'
 
@@ -10,7 +10,8 @@ const Motion = motion
 
 function Hero() {
   const { language } = useLanguage()
-  const t = content[language]
+  const t = content[language] ?? content.ta
+  const homeContent = t?.home ?? content.en.home
   const heroImage =
     galleryImages[24] ||
     'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80'
@@ -34,16 +35,16 @@ function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-gradient-to-r from-yellowSoft to-yellow-100 px-4 py-2 text-xs font-bold uppercase tracking-[0.3em] text-brown shadow-sm"
           >
             <Sparkles size={14} strokeWidth={2.2} />
-            {t.home.heroBadge}
+            {homeContent.heroBadge}
           </Motion.p>
           
           <Motion.h1
             variants={fadeInUp}
             className="font-heading text-2xl leading-tight text-brown sm:text-4xl lg:text-5xl"
           >
-            {t.home.heroTitleLine1}
+            {homeContent.heroTitleLine1}
             <span className="block bg-gradient-to-r from-primary via-brown to-primary bg-clip-text text-transparent">
-              {t.home.heroTitleLine2}
+              {homeContent.heroTitleLine2}
             </span>
           </Motion.h1>
           
@@ -51,7 +52,7 @@ function Hero() {
             variants={fadeInUp}
             className="max-w-2xl text-lg leading-relaxed text-textSecondary sm:text-xl"
           >
-            {t.home.heroText}
+            {homeContent.heroText}
           </Motion.p>
           
           <Motion.div variants={fadeInUp} className="flex flex-wrap gap-3 pt-4 sm:gap-4">
@@ -60,7 +61,7 @@ function Hero() {
               className="group relative rounded-xl bg-gradient-to-r from-primary to-primaryHover px-6 py-3 text-sm font-semibold text-brown shadow-lg transition hover:shadow-xl hover:scale-105 overflow-hidden sm:px-8 sm:py-4 sm:text-base"
             >
               <span className="relative z-10 inline-flex items-center gap-2">
-                {t.home.heroPrimary}
+                {homeContent.heroPrimary}
                 <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
               </span>
               <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300" />
@@ -69,7 +70,7 @@ function Hero() {
               to="/services"
               className="rounded-xl border-2 border-primary/40 bg-white px-6 py-3 text-sm font-semibold text-brown transition hover:border-primary hover:bg-yellowSoft/30 hover:shadow-md sm:px-8 sm:py-4 sm:text-base"
             >
-              {t.home.heroSecondary}
+              {homeContent.heroSecondary}
             </Link>
           </Motion.div>
 
@@ -79,9 +80,9 @@ function Hero() {
             className="flex flex-wrap gap-6 pt-8 border-t border-border/50"
           >
             {[
-              { number: '500+', label: t.home.trustEvents },
-              { number: '98%', label: t.home.trustClients },
-              { number: '10+', label: t.home.trustYears },
+              { number: '500+', label: homeContent.trustEvents },
+              { number: '98%', label: homeContent.trustClients },
+              { number: '10+', label: homeContent.trustYears },
             ].map((stat) => (
               <div key={stat.label} className="flex items-center gap-3">
                 <div className="h-2 w-2 rounded-full bg-primary" />

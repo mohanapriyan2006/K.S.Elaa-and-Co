@@ -14,7 +14,7 @@ import {
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { fadeInUp, staggerContainer } from '../utils/animations'
-import { developer, companySocial, serviceItems, galleryImages } from '../data/services'
+import { developer, companySocial, galleryImages } from '../data/services'
 import { useLanguage } from '../context/useLanguage'
 import { content } from '../i18n/content'
 
@@ -63,8 +63,8 @@ function About() {
                 {aboutContent.subtitle}
               </Motion.p>
               <Motion.div variants={fadeInUp} className="mt-8 flex flex-wrap items-center gap-3 text-xs font-semibold text-brown/80">
-                {aboutTags.map((tag) => (
-                  <span key={tag} className="rounded-full border border-primary/40 bg-white/70 px-3 py-1">{tag}</span>
+                {aboutTags.map((tag, index) => (
+                  <span key={`about-tag-${index}`} className="rounded-full border border-primary/40 bg-white/70 px-3 py-1">{tag}</span>
                 ))}
               </Motion.div>
             </div>
@@ -111,9 +111,9 @@ function About() {
               variants={staggerContainer}
               className="grid gap-6 sm:grid-cols-2"
             >
-              {aboutStats.map((stat) => (
+              {aboutStats.map((stat, index) => (
                 <Motion.div
-                  key={stat.label}
+                  key={`about-stat-${index}`}
                   variants={fadeInUp}
                   className="rounded-2xl border border-primary/30 bg-gradient-to-br from-yellowSoft/50 to-primary/5 p-8 text-center"
                 >
@@ -151,7 +151,7 @@ function About() {
               const Icon = valueIcons[index % valueIcons.length]
               return (
                 <Motion.article
-                  key={value.title}
+                  key={`about-value-${index}`}
                   variants={fadeInUp}
                   className="group rounded-xl border border-border bg-white p-6 shadow-soft transition hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
                 >

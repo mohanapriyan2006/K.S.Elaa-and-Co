@@ -27,7 +27,7 @@ function ScrollToTop() {
 
 function FloatingLanguageToggle() {
   const { language, toggleLanguage } = useLanguage()
-  const t = content[language]
+  const t = content[language] ?? content.ta
 
   return (
     <button
@@ -44,7 +44,7 @@ function FloatingLanguageToggle() {
 
 function FloatingContactActions() {
   const { language } = useLanguage()
-  const t = content[language]
+  const t = content[language] ?? content.ta
   const whatsappText =
     language === 'ta'
       ? 'வணக்கம், நிகழ்ச்சி அலங்காரம் தொடர்பாக பேச விரும்புகிறேன்.'
