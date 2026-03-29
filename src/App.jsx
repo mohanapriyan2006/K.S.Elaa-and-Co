@@ -14,7 +14,7 @@ import ServiceLanding from './pages/ServiceLanding'
 import { pageTransition } from './utils/animations'
 import { useLanguage } from './context/useLanguage'
 import { content } from './i18n/content'
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from '@vercel/analytics/react'
 
 const Motion = motion
 
