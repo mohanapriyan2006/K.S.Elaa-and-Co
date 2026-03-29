@@ -16,7 +16,7 @@ function CategoryGrid({ items, title, subtitle, badgeLabel = 'Categories' }) {
 
         <Motion.div
           variants={staggerContainer}
-          initial="hidden"
+          initial="visible"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
           className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
