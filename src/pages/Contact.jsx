@@ -39,17 +39,18 @@ function Contact() {
           </div>
 
           <article className="space-y-3 rounded-3xl border border-border bg-white p-6 shadow-soft">
-            <h2 className="font-heading text-2xl text-brown">Local Service Information</h2>
+            <h2 className="font-heading text-2xl text-brown">{t.contactPage.localInfoTitle}</h2>
             <p className="text-sm text-textSecondary">
-              Business Name: K.S. ELAA & CO
+              {t.contactPage.businessNameLabel}: K.S. ELAA & CO
             </p>
             <p className="text-sm text-textSecondary">
-              Service Area: Thanjavur, Trichy, Tamil Nadu
+              {t.contactPage.serviceAreaLabel}: Thanjavur, Thiruvarur, Trichy - also Overall Tamil Nadu
             </p>
             <p className="text-sm text-textSecondary">
-              Phone: <a className="font-semibold text-brown underline" href={`tel:+${phoneNumber}`}>+91 94898 42773</a>
+              {t.contactPage.phoneLabel}:{' '}
+              <a className="font-semibold text-brown underline" href={`tel:+${phoneNumber}`}>+91 94898 42773</a>
             </p>
-            <p className="text-sm text-textSecondary">Working Hours: Mon-Sun 8:00 AM - 9:00 PM</p>
+            <p className="text-sm text-textSecondary">{t.contactPage.hoursLabel}: {t.contactPage.hoursValue}</p>
           </article>
         </div>
 

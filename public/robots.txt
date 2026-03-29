@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.kselaaandco.in/sitemap.xml
+Sitemap: https://kselaa-co.vercel.app/sitemap.xml

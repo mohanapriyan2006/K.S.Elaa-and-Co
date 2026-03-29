@@ -54,11 +54,14 @@ function SeoManager() {
 
   useEffect(() => {
     const currentPath = location.pathname
-    const pageSeo = routeSeo[currentPath] || {
-      title: siteConfig.defaultTitle,
-      description: siteConfig.defaultDescription,
+    const routeEntry = routeSeo[currentPath]
+    const pageSeo = routeEntry?.[language] || routeEntry?.en || {
+      title: siteConfig.defaultTitle[language] || siteConfig.defaultTitle.en,
+      description: siteConfig.defaultDescription[language] || siteConfig.defaultDescription.en,
       keywords: 'event decorators in Tamil Nadu, wedding decoration near me',
     }
+    const serviceName =
+      routeEntry?.serviceName?.[language] || routeEntry?.serviceName?.en || routeEntry?.serviceName
 
     const currentUrl = `${siteConfig.siteUrl}${currentPath}`
 
@@ -91,7 +94,7 @@ function SeoManager() {
       openingHours: siteConfig.openingHours,
       sameAs: ['https://www.instagram.com/k.s.elaa_and__co/'],
       priceRange: '$$',
-      description: siteConfig.defaultDescription,
+      description: siteConfig.defaultDescription[language] || siteConfig.defaultDescription.en,
       address: {
         '@type': 'PostalAddress',
         addressRegion: 'Tamil Nadu',
@@ -101,11 +104,11 @@ function SeoManager() {
 
     setJsonLd('local-business', localBusinessSchema)
 
-    if (pageSeo.serviceName) {
+    if (serviceName) {
       const serviceSchema = {
         '@context': 'https://schema.org',
         '@type': 'Service',
-        serviceType: pageSeo.serviceName,
+        serviceType: serviceName,
         provider: {
           '@type': 'LocalBusiness',
           name: siteConfig.brandName,

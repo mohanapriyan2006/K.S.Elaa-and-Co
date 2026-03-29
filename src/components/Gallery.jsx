@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { fadeInUp, staggerContainer } from '../utils/animations'
+import { useLanguage } from '../context/useLanguage'
 
 const Motion = motion
 
 function Gallery({ items, title = 'Gallery Preview', badgeLabel = 'Showcase', buttonLabel = 'View Full Gallery' }) {
+  const { language } = useLanguage()
+
   return (
     <section className="py-16 sm:py-20">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -36,7 +39,11 @@ function Gallery({ items, title = 'Gallery Preview', badgeLabel = 'Showcase', bu
             >
               <img
                 src={item.image}
-                alt={`${item.title} decoration in Thanjavur and Trichy by K.S. ELAA & CO`}
+                alt={
+                  language === 'ta'
+                    ? `K.S. ELAA & CO வழங்கும் தஞ்சாவூர் மற்றும் திருச்சியில் ${item.title} அலங்காரம்`
+                    : `${item.title} decoration in Thanjavur and Trichy by K.S. ELAA & CO`
+                }
                 loading="lazy"
                 className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
               />

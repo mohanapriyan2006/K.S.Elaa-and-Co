@@ -15,9 +15,9 @@ function Footer() {
             {t.footer.tagline}
           </p>
           <p className="max-w-md text-sm text-textSecondary">
-            Event decorators serving Thanjavur, Trichy, and surrounding Tamil Nadu locations.
+            {t.footer.serviceAreaText}
           </p>
-          <p className="text-sm text-textSecondary">Mon-Sun: 8:00 AM - 9:00 PM</p>
+          <p className="text-sm text-textSecondary">{t.footer.hoursText}</p>
         </div>
 
         <div className="flex flex-wrap gap-5 text-sm font-medium text-textSecondary">
@@ -31,13 +31,13 @@ function Footer() {
             {t.nav.contact}
           </Link>
           <Link to="/wedding-decoration" className="transition hover:text-brown">
-            Wedding Decoration
+            {t.footer.quickLinks.wedding}
           </Link>
           <Link to="/haldi-decoration" className="transition hover:text-brown">
-            Haldi Decoration
+            {t.footer.quickLinks.haldi}
           </Link>
           <Link to="/panthal-setup" className="transition hover:text-brown">
-            Panthal Setup
+            {t.footer.quickLinks.panthal}
           </Link>
         </div>
 

@@ -1,10 +1,21 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { hoverLift } from '../utils/animations'
+import { useLanguage } from '../context/useLanguage'
 
 const Motion = motion
 
 function ServiceCard({ item }) {
+  const { language } = useLanguage()
+  const linkLabel =
+    language === 'ta'
+      ? `தஞ்சாவூர் மற்றும் திருச்சியில் ${item.title} சேவை`
+      : `${item.title} in Thanjavur and Trichy`
+  const altLabel =
+    language === 'ta'
+      ? `K.S. ELAA & CO வழங்கும் தஞ்சாவூர் மற்றும் திருச்சியில் ${item.title} அலங்காரம்`
+      : `${item.title} setup in Thanjavur and Trichy by K.S. ELAA & CO`
+
   return (
     <Motion.article
       variants={hoverLift}
@@ -13,10 +24,10 @@ function ServiceCard({ item }) {
       className="group relative overflow-hidden rounded-2xl border border-border/80 bg-white shadow-soft"
     >
       <div className="mx-3 mt-3 overflow-hidden rounded-t-[999px]">
-        <Link to={`/${item.slug}`} aria-label={`${item.title} in Thanjavur and Trichy`}>
+        <Link to={`/${item.slug}`} aria-label={linkLabel}>
           <img
             src={item.image}
-            alt={`${item.title} setup in Thanjavur and Trichy by K.S. ELAA & CO`}
+            alt={altLabel}
             loading="lazy"
             className="h-72 w-full object-cover transition duration-500 group-hover:scale-110"
           />

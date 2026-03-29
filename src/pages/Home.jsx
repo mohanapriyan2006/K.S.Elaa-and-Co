@@ -23,21 +23,21 @@ function Home() {
   const localizedTestimonials =
     homeContent?.testimonials?.length ? homeContent.testimonials : testimonials
   const safeTestimonialIndex = activeTestimonial % localizedTestimonials.length
-
-  const homeFaqs = [
-    {
-      q: 'Do you provide wedding decorators near me in Thanjavur and Trichy?',
-      a: 'Yes. K.S. ELAA & CO provides wedding decoration services across Thanjavur, Trichy, and nearby areas in Tamil Nadu.',
-    },
-    {
-      q: 'Can I book haldi and reception decoration as a combined package?',
-      a: 'Yes. We provide customized event packages that combine haldi, engagement, wedding, and reception decoration based on your timeline and budget.',
-    },
-    {
-      q: 'Do you offer panthal setup for traditional functions?',
-      a: 'Yes. We provide mannadu panthal and panthal setup services with traditional styling and practical layout planning.',
-    },
-  ]
+  const homeFaqs = homeContent?.faqs?.length ? homeContent.faqs : content.en.home.faqs
+  const linkLabels =
+    language === 'ta'
+      ? {
+          panthal: 'பந்தல் அமைப்பு',
+          mannadu: 'மண்ணாடு பந்தல்',
+          haldi: 'ஹல்தி அலங்காரம்',
+          engagement: 'நிச்சயதார்த்த அலங்காரம்',
+        }
+      : {
+          panthal: 'Panthal Setup',
+          mannadu: 'Mannadu Panthal',
+          haldi: 'Haldi Decoration',
+          engagement: 'Engagement Decoration',
+        }
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -76,24 +76,20 @@ function Home() {
       <section className="py-8 sm:py-10">
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <article className="rounded-2xl border border-border bg-white p-6 shadow-soft sm:p-8">
-            <h2 className="font-heading text-3xl text-brown">Event Decorators in Thanjavur and Trichy</h2>
+            <h2 className="font-heading text-3xl text-brown">{homeContent.localSeoTitle}</h2>
             <p className="mt-4 leading-relaxed text-textSecondary">
-              K.S. ELAA & CO provides wedding decoration, haldi decoration, engagement decoration,
-              reception setup, baby shower decoration, birthday decoration, mannadu panthal, panthal setup,
-              kabbadi stage setup, and corporate event decoration services across Thanjavur and Trichy. If you
-              are searching for event decorators in Tamil Nadu who can deliver elegant design with dependable
-              execution, our team offers city-focused support and practical packages for all event sizes.
+              {homeContent.localSeoParagraph1}
             </p>
             <p className="mt-3 leading-relaxed text-textSecondary">
-              Planning a traditional ceremony? Explore our{' '}
-              <Link to="/panthal-setup" className="font-semibold text-brown underline">Panthal Setup</Link>
-              {' '}and{' '}
-              <Link to="/mannadu-panthal" className="font-semibold text-brown underline">Mannadu Panthal</Link>
-              {' '}services. Looking for pre-wedding functions? Check our{' '}
-              <Link to="/haldi-decoration" className="font-semibold text-brown underline">Haldi Decoration</Link>
-              {' '}and{' '}
-              <Link to="/engagement-decoration" className="font-semibold text-brown underline">Engagement Decoration</Link>
-              {' '}pages.
+              {homeContent.localSeoParagraph2Start}{' '}
+              <Link to="/panthal-setup" className="font-semibold text-brown underline">{linkLabels.panthal}</Link>
+              {' '}{homeContent.localSeoParagraph2Middle}{' '}
+              <Link to="/mannadu-panthal" className="font-semibold text-brown underline">{linkLabels.mannadu}</Link>
+              {' '}{homeContent.localSeoParagraph2Middle2}{' '}
+              <Link to="/haldi-decoration" className="font-semibold text-brown underline">{linkLabels.haldi}</Link>
+              {' '}{homeContent.localSeoParagraph2Middle3}{' '}
+              <Link to="/engagement-decoration" className="font-semibold text-brown underline">{linkLabels.engagement}</Link>
+              {' '}{homeContent.localSeoParagraph2End}
             </p>
           </article>
         </div>
@@ -208,7 +204,7 @@ function Home() {
       <section className="py-10 sm:py-14">
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-border bg-white p-6 shadow-soft sm:p-8">
-            <h2 className="font-heading text-3xl text-brown">Frequently Asked Questions</h2>
+            <h2 className="font-heading text-3xl text-brown">{homeContent.faqTitle}</h2>
             <div className="mt-6 space-y-4">
               {homeFaqs.map((faq) => (
                 <article key={faq.q} className="rounded-xl border border-border/70 bg-background p-4">
