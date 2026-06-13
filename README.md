@@ -29,6 +29,10 @@ A premium event decoration and wedding design website built to showcase elegant 
 
 ## About
 
+<div align="center">
+<img src="screenshots/image1.png" width="100%" />
+</div>
+
 K.S. ELAA & CO is a modern event decoration brand specializing in weddings, celebrations, stage setups, corporate events, and premium venue transformations.
 
 This website was designed to reflect the company's commitment to elegance, cultural heritage, and memorable event experiences while providing visitors with a seamless way to explore services and request bookings.
@@ -53,6 +57,10 @@ The website focuses on creating an immersive and premium browsing experience.
 
 ## Features
 
+<div align="center">
+<img src="screenshots/image2.png" width="100%" />
+</div>
+
 ### Premium Brand Experience
 
 * Elegant Indian-inspired design language
@@ -64,6 +72,10 @@ The website focuses on creating an immersive and premium browsing experience.
 
 ### Interactive User Experience
 
+<div align="center">
+<img src="screenshots/image4.png" width="100%" />
+</div>
+
 * Smooth page transitions
 * Scroll-triggered animations
 * Hero section motion effects
@@ -74,6 +86,10 @@ The website focuses on creating an immersive and premium browsing experience.
 ---
 
 ### Services Showcase
+
+<div align="center">
+<img src="screenshots/image3.png" width="100%" />
+</div>
 
 Visitors can easily browse and filter event categories.
 
@@ -103,6 +119,10 @@ Designed to maximize visual impact across all devices.
 ---
 
 ### Booking & Contact
+
+<div align="center">
+<img src="screenshots/image5.png" width="100%" />
+</div>
 
 Built-in lead capture system featuring:
 
