@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="./public/logo.png" width="140" alt="K.S. ELAA & CO" />
+<img src="https://kselaa-co.vercel.app/K-S-Elaa&co-logo.png" width="140" alt="K.S. ELAA & CO" />
 
 # K.S. ELAA & CO
 
